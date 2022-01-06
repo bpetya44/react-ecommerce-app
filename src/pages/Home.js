@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
+      {/* Hero section */}
       <section className="home-wrapper-1 py-5">
-        <div className="container-2xxl">
+        <div className="container-xxl">
           <div className="row">
             <div className="col-6">
               <div className="main-banner position-relative p-3 d-flex justify-content-center">
@@ -24,7 +25,7 @@ const Home = () => {
             </div>
 
             <div className="col-6">
-              <div className="d-flex flex-wrap justify-content-center align-items-center gap-10 pt-5">
+              <div className="d-flex flex-wrap justify-content-around align-items-center gap-10 pt-5">
                 {/* small banner1 */}
                 <div className="small-banner position-relative">
                   <img
@@ -80,13 +81,66 @@ const Home = () => {
                     <h5>Laptops</h5>
                   </div>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </section>
+
+      {/* Secondary section Services */}
+      <section className="home-wrapper-2 py-5">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <div className="services d-flex align-items-center justify-content-between">
+
+                <div className="d-flex align-items-center text-white text-muted gap-1">
+                  <img src="images/delivery-50.png" alt="free shipping" />
+                  <div>
+                    <h6 className="m-0">Free Shipping</h6>
+                    <small>On orders over $100</small>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center text-white text-muted gap-1">
+                  <img src="images/giveaway-50.png" alt="Daily Offers" />
+                  <div>
+                    <h6 className="m-0">Daily Offers</h6>
+                    <small>Save up to 25% off</small>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center text-white text-muted gap-1">
+                  <img src="images/communicate-50.png" alt="Support 24/7" />
+                  <div>
+                    <h6 className="m-0">Support 24/7</h6>
+                    <small>Call our expert</small>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center text-white text-muted gap-1">
+                  <img src="images/sale-50.png" alt="Affordable Prices" />
+                  <div>
+                    <h6 className="m-0">Affordable Prices</h6>
+                    <small>Factory direct price</small>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center text-white text-muted gap-1">
+                  <img src="images/bank-cards-50.png" alt="Secure Payments" />
+                  <div>
+                    <h6 className="m-0">Secure Payments</h6>
+                    <small>100% Protected</small>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
     </>
   );
 };

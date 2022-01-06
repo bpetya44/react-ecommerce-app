@@ -93,8 +93,8 @@ a {
   background-color: var(--color-f5f5dc);
 }
 .main-banner-content {
-  top: 30%;
-  left: 20%;
+  top: 20%;
+  left: 10%;
 }
 
 .main-banner-content h4{
@@ -181,6 +181,14 @@ a {
   margin: 0 0 12px;
   letter-spacing: .3px;
 }
+
+/* home-wrapper-2 */
+.home-wrapper-2 {
+  background-color: var(--color-232f3e);
+}
+
+
+/* home-wrapper-2 End*/
 
 /* HOME End 1:36 */ 
 
