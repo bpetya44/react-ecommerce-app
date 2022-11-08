@@ -13,10 +13,11 @@
   --color-bf4800: #bf4800;
   --color-f5f5dc: #f5f5dc;
   --color-0000001a: #0000001a;
+ 
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -241,6 +242,13 @@ a {
   /* box-shadow: 0 0 10px #0000001a; */
 }
 
+/* Special Products */
+.special-product-card{
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+
 /* Marquee Section */
 .marquee-inner-wrapper  {
   box-shadow: 0 0 10px #0000001a; 
@@ -339,4 +347,4 @@ footer .input-group-text {
   color: white;
   text-transform: uppercase;
 }
-/* FOOTER End2.42 */
+/* FOOTER End3.17 */

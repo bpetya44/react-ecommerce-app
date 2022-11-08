@@ -33,7 +33,9 @@ const ProductCard = () => {
           </ReactStars>
 
           <span className="price">$99.99</span>
+
         </div>
+        
           {/* Action Bar */}
         <div className="action-bar position-absolute">
           <div className="d-flex flex-column gap-30">
