@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import BlogCard from "../components/BlogCard";
-import ProductCard from "../components/ProductCard"
-import SpecialProduct from "../components/SpecialProduct"
+import ProductCard from "../components/ProductCard";
+import SpecialProduct from "../components/SpecialProduct";
 
 const Home = () => {
   return (
@@ -136,15 +136,14 @@ const Home = () => {
                     <small>100% Protected</small>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-         {/* Categories */}
-         <section className="home-wrapper-3 py-5">
+
+      {/* Categories */}
+      <section className="home-wrapper-3 py-5">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
@@ -223,49 +222,118 @@ const Home = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <h3 className="section-heading text-white">Featured Collection </h3>
+              <h3 className="section-heading text-white">
+                Featured Collection{" "}
+              </h3>
             </div>
             <ProductCard />
             <ProductCard />
             <ProductCard />
             <ProductCard />
-                        
           </div>
         </div>
       </section>
 
-   
+      {/* Famous Product Cards */}
+      <section className="famous-wrapper py-5 home-wrapper-2">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-3">
+              <div className="famous-card position-relative ">
+                <img
+                  className="img-fluid"
+                  src="images/watches.png"
+                  alt="smart watches"
+                />
+                <div className="famous-content position-absolute">
+                  <h6>Smart Watches</h6>
+                  <h5>Smart Watch Series</h5>
+                  <p>From $399</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3">
+              <div className="famous-card position-relative ">
+                <img
+                  className="img-fluid"
+                  src="images/lenovo.png"
+                  alt="tablet lenovo"
+                />
+                <div className="famous-content position-absolute">
+                  <h6 className="text-dark">Tablets</h6>
+                  <h5 className="text-dark">Lenovo Tab M8 HD </h5>
+                  <p className="text-dark">From $199</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3">
+              <div className="famous-card position-relative ">
+                <img
+                  className="img-fluid"
+                  src="images/iphone-13.png"
+                  alt="iPhone 13 Pro pink"
+                />
+                <div className="famous-content position-absolute">
+                  <h6 className="text-dark">Smart phones</h6>
+                  <h5 className="text-dark">Apple iPhone 13, 128GB</h5>
+                  <p className="text-dark">From $799</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3">
+              <div className="famous-card position-relative ">
+                <img
+                  className="img-fluid"
+                  src="images/akai.png"
+                  alt="Akai speaker"
+                />
+                <div className="famous-content position-absolute">
+                  <h6 className="text-dark">Home Speakers</h6>
+                  <h5 className="text-dark">AKAI DJ-880, 100W</h5>
+                  <p className="text-dark">From $99</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
 
       {/* Special Products */}
       <section className="special-wrapper py-5 home-wrapper-2">
-        <div className="container-2xxl">
+        <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <h3 className="section-heading text-white text-center">Special Products</h3>
+              <h3 className="section-heading text-white text-center">
+                Special Products
+              </h3>
             </div>
           </div>
           <div className="row">
             <SpecialProduct />
             <SpecialProduct />
             <SpecialProduct />
-
           </div>
         </div>
-
       </section>
 
-        {/*Popular Products */}
-        <section className="popular-wrapper py-5 home-wrapper-2">
+      {/*Popular Products */}
+      <section className="popular-wrapper py-5 home-wrapper-2">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <h3 className="section-heading text-white text-center">Popular Products </h3>
-            </div>   
+              <h3 className="section-heading text-white text-center">
+                Popular Products{" "}
+              </h3>
+            </div>
             <ProductCard />
             <ProductCard />
             <ProductCard />
-            <ProductCard />        
-          </div>           
+            <ProductCard />
+          </div>
         </div>
       </section>
 
