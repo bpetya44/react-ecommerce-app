@@ -13,7 +13,8 @@
   --color-bf4800: #bf4800;
   --color-f5f5dc: #f5f5dc;
   --color-0000001a: #0000001a;
- 
+ --color-1c1c1b: #1c1c1b;
+
 }
 
 body {
@@ -378,4 +379,57 @@ footer .input-group-text {
   color: white;
   text-transform: uppercase;
 }
-/* FOOTER End3.36 */
+/* FOOTER End */
+
+/* Our Store Page */
+.filter-card{
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+.filter-title{
+  font-size: 24px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--color-1c1c1b);
+  margin-bottom: 20px;
+}
+
+.filter-card ul,
+.filter-card .form-check-label {
+  list-style-type: none;
+  font-size: 18px;
+  line-height: 30px;
+  cursor: pointer;
+} 
+
+.filter-card .form-check-input:focus {
+  border-color:var(--color-5573e2);
+  box-shadow: none;
+}
+
+.filter-card .form-check-input:checked {
+ background-color:var(--color-5573e2);
+
+}
+
+.sub-title{
+  font-size: 18px;
+  font-weight: 600;
+ margin-top: 15px;
+}
+
+.colors {
+  list-style-type:square;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.colors li {
+  width: 24px;
+  height: 24px;
+  background-color: red;
+  /* border-radius: 50%; */
+}
