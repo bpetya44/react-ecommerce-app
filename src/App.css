@@ -433,3 +433,24 @@ footer .input-group-text {
   background-color: red;
   /* border-radius: 50%; */
 }
+
+.random-products:first-child {
+  border-bottom: 1px solid #aeb3ba;
+}
+
+.filter-sort-grid {
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.grid img {
+  width: 32px;
+  height: 32px;
+  background-color: #f2f2f2;
+  padding: 5px;
+  border-radius: 3px;
+}
+.grid img:hover {
+  background-color: #b8b5b5;
+}
