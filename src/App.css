@@ -284,6 +284,18 @@ a {
 
 /* HOME End*/
 
+/* FOOTER */
+footer {
+  background-color: var(--color-131921);
+}
+
+footer .input-group-text {
+  background-color: var(--color-232f3e) !important;
+  color: white;
+  text-transform: uppercase;
+}
+/* FOOTER End */
+
 /* Blog Card */
 .blog-card {
   background-color: white;
@@ -365,18 +377,6 @@ a {
   top: 5%;
   right: 15px;
 }
-
-/* FOOTER */
-footer {
-  background-color: var(--color-131921);
-}
-
-footer .input-group-text {
-  background-color: var(--color-232f3e) !important;
-  color: white;
-  text-transform: uppercase;
-}
-/* FOOTER End */
 
 /* Our Store Page */
 .filter-card {
@@ -484,3 +484,5 @@ footer .input-group-text {
 .gr-12 .product-card .action-bar {
   top: 25%;
 }
+
+/* Blog */
