@@ -94,7 +94,56 @@ const Header = () => {
         </div>
       </header>
 
-      
+      <header className="header-bottom py-3">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <div className="menu-bottom d-flex align-items-center gap-5">
+                <div>
+                  {/* Dropdown */}
+                  <div className="dropdown">
+                    <button
+                      className="btn btn-warning dropdown-toggle bg-transparent text-white"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img src="images/menu.png" style={{width:35}} alt="menu" />
+                      <span> Categories</span>
+                    </button>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          Action
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          Another action
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          Something else here
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* End Dropdown */}
+                </div>
+                <div className="menu-links">
+                  <div className="d-flex align-items-center gap-15">
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/storep">Our Store</NavLink>
+                    <NavLink to="/blog">Blog</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
     </>
   );
 };
