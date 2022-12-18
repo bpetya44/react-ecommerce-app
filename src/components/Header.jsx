@@ -109,25 +109,25 @@ const Header = () => {
                       aria-expanded="false"
                     >
                       <img src="images/menu.png" style={{width:35}} alt="menu" />
-                      <span> Categories</span>
+                      <span className="d-inline-block ms-4 me-4"> Categories</span>
                     </button>
                     <ul className="dropdown-menu">
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item text-white" to="#">
                           Action
-                        </a>
+                        </Link>
                       </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
+                     <li>
+                        <Link className="dropdown-item text-white" to="#">
                           Another action
-                        </a>
+                        </Link>
                       </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
+                     <li>
+                        <Link className="dropdown-item text-white" to="#">
                           Something else here
-                        </a>
+                        </Link>
                       </li>
-                    </ul>
+                   </ul>
                   </div>
                   {/* End Dropdown */}
                 </div>
