@@ -31,6 +31,9 @@ a {
 .gap-15 {
   gap: 15px;
 }
+.gap-30 {
+  gap: 30px;
+}
 
 /* Header  */
 
@@ -82,4 +85,16 @@ a {
 }
 /* Header End*/
 
-/* 57min */
+
+
+/* FOOTER */
+footer {
+  background-color: var(--color-131921);
+}
+
+footer .input-group-text {
+  background-color: var(--color-232f3e) !important;
+  color: white;
+  text-transform: uppercase;
+}
+/* FOOTER End */
