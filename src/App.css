@@ -72,11 +72,12 @@ a {
 
 .header-bottom .dropdown-menu {
   background-color: var(--color-232f3e);
+  width: 100%;
 }
 
 .header-bottom .dropdown-item:hover {
  background-color: transparent;
-  border: 1px solid var(--color-5573e2);
+  border-left: 5px solid var(--color-5573e2);
   color: var(--color-febd69) !important;
 }
 /* Header End*/

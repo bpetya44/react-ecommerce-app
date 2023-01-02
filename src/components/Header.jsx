@@ -114,17 +114,17 @@ const Header = () => {
                     <ul className="dropdown-menu">
                       <li>
                         <Link className="dropdown-item text-white" to="#">
-                          Action
+                        Category1
                         </Link>
                       </li>
                      <li>
                         <Link className="dropdown-item text-white" to="#">
-                          Another action
+                        Category2
                         </Link>
                       </li>
                      <li>
                         <Link className="dropdown-item text-white" to="#">
-                          Something else here
+                        Category3
                         </Link>
                       </li>
                    </ul>
@@ -134,7 +134,7 @@ const Header = () => {
                 <div className="menu-links">
                   <div className="d-flex align-items-center gap-15">
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/storep">Our Store</NavLink>
+                    <NavLink to="/store">Our Store</NavLink>
                     <NavLink to="/blog">Blog</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                   </div>
