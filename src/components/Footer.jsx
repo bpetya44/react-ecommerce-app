@@ -1,21 +1,23 @@
 import React from "react";
-
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <>
-      {/* Top section */}
+      {/* Top Footer */}
       <footer className="py-3">
-      <div className="container-xxl">
-        <div className="row align-items-center">
-          <div className="col-5">
-            <div className="footer-top-data d-flex gap-10 align-items-center">
-              <img src="images/subscription-50.png" alt="newsletter" />
-              <h4 className="mb-0 text-white">Subscribe for Our Newsletter</h4>
+        <div className="container-xxl">
+          <div className="row align-items-center">
+            <div className="col-5">
+              <div className="footer-top-data d-flex gap-10 align-items-center">
+                <img src="images/subscription-50.png" alt="newsletter" />
+                <h4 className="mb-0 text-white">
+                  Subscribe for Our Newsletter
+                </h4>
+              </div>
             </div>
-          </div>
-          <div className="col-7">
-          <div className="input-group">
+            <div className="col-7">
+              <div className="input-group">
                 <input
                   type="text"
                   className="form-control py-1"
@@ -27,24 +29,63 @@ const Footer = () => {
                   Subscribe
                 </span>
               </div>
+            </div>
           </div>
         </div>
-      </div>
       </footer>
 
-      {/* Middle section */}
-      <footer className="py-3">
-        
+      {/* Middle Footer */}
+      <footer className="py-3 ps-4">
+        <div className="row">
+          <div className="col-4">
+            <h4 className="text-white mb-4 ps-4">Contact Us</h4>
+        <div>
+          <address className="text-white">Demo Shop <br/> №123 Freedom Str. <br/>Bulgaria</address>
+          <a href="tel: +359 876 711314" className="text-white">tel:+359 876 711314</a>
+        </div>
+        </div>
+          
+          <div className="col-3">
+            <h4 className="text-white mb-4">Information</h4>
+            <div className="footer-links d-flex flex-column">
+              <Link className="text-white py-2 mb-1">Privacy Policy</Link>
+              <Link className="text-white py-2 mb-1">Refund Policy</Link>
+              <Link className="text-white py-2 mb-1">Shipping Policy</Link>
+              <Link className="text-white py-2 mb-1">Terms of Service</Link>
+              <Link className="text-white py-2 mb-1">Blog</Link>
+            </div>
+          </div>
+          <div className="col-3">
+            <h4 className="text-white mb-4">Account</h4>
+            <div className="footer-links d-flex flex-column">
+              <Link className="text-white py-2 mb-1">Search</Link>
+              <Link className="text-white py-2 mb-1">About Us</Link>
+              <Link className="text-white py-2 mb-1">FAQ</Link>
+              <Link className="text-white py-2 mb-1">Contact Us</Link>
+              <Link className="text-white py-2 mb-1">Size Chart</Link>
+            </div>
+          </div>
+          <div className="col-2">
+            <h4 className="text-white mb-4">Quick Links</h4>
+            <div className="footer-links d-flex flex-column">
+              <Link className="text-white py-2 mb-1">Accessories</Link>
+              <Link className="text-white py-2 mb-1">Laptops</Link>
+              <Link className="text-white py-2 mb-1">Headphones</Link>
+              <Link className="text-white py-2 mb-1">Tablets</Link>
+              <Link className="text-white py-2 mb-1">Smart Watches</Link>
+            </div>
+          </div>
+        </div>
       </footer>
 
-      {/* Bottom section */}
+      {/* Bottom Footer */}
       <footer className="py-3">
-        <div className="container-xxl">
+        <div className="container-2xxl">
           <div className="row">
             <div className="col-12">
-              <p className="text-center text-muted">
+              <p className="text-end text-muted pe-4">
                 &copy; {new Date().getFullYear()} Developed by{" "}
-                <a target={"_blank"} rel="noreferrer" href="https://bpetya.me/">
+                <a className="text-white" target={"_blank"} rel="noreferrer" href="https://bpetya.me/">
                   💕Petya
                 </a>
               </p>
