@@ -598,3 +598,10 @@ button.button.login {
 button.button.login:hover {
   color: var(--color-eea444);
 }
+
+/* Policy Pages */
+
+.policy {
+  background-color: white;
+  padding: 30px;
+}
