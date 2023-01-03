@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { BsLinkedin, BsTwitter, BsGithub, } from 'react-icons/bs'
 
 const Footer = () => {
   return (
@@ -35,13 +36,19 @@ const Footer = () => {
       </footer>
 
       {/* Middle Footer */}
-      <footer className="py-3 ps-4">
+      <footer className="py-3 ps-5">
         <div className="row">
-          <div className="col-4">
+          <div className="col-3">
             <h4 className="text-white mb-4 ps-4">Contact Us</h4>
-        <div>
-          <address className="text-white">Demo Shop <br/> №123 Freedom Str. <br/>Bulgaria</address>
-          <a href="tel: +359 876 711314" className="text-white">tel:+359 876 711314</a>
+        <div className="ps-4">
+          <address className="text-white">Demo Shop Ltd. <br/> 123 Free Str. <br/>Bulgaria</address>
+          <a href="tel: +359 876 711314" className="text-white mt-3">&#9742; +359 876 711314</a>
+          <a href="mailto:ang.petya@gmail.com" className="text-white d-block mt-3">✉️ ang.petya@gmail.com</a>
+          <div className="social_icons d-flex align-items-center gap-3 mt-4">
+            <a className="text-white" alt="linkedin icon" href="https://www.linkedin.com/in/ang-petya/"><BsLinkedin  className="fs-4" /></a>
+            <a className="text-white" alt="github  icon" href="https://github.com/bpetya44"><BsGithub className="fs-4" /></a>
+            <a className="text-white" alt="twitter icon" href="https://twitter.com/ang_petya"><BsTwitter  className="fs-4"/></a>
+          </div>
         </div>
         </div>
           
