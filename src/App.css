@@ -7,8 +7,10 @@
   --color-131921:  #1b1723;
   --color-3b4149:  #3b4149;
   --color-febd69: #febd69; 
+  --color-eea444: #eea444;
   --color-232f3e: #232f3e;
   --color-5573e2: #5573e2;
+  --color-bf4800: #bf4800;
 }
 
 body {
@@ -84,6 +86,42 @@ a {
   color: var(--color-febd69) !important;
 }
 /* Header End*/
+
+/* HOME */
+.main-banner-content {
+  top: 15%;
+  left: 10%;
+}
+
+.main-banner-content h4{
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-bf4800);
+  margin: 0 0 12px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+
+.button {
+  background-color: var(--color-febd69);
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 30%;
+  padding: 13px 33px;
+  border-radius: 15px;
+}
+
+.button:hover {
+  background-color: var(--color-eea444);
+  color: white;
+  transform: translateY(5px);
+}
+
+/* HOME End 1:36 */ 
+
 
 
 
