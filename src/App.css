@@ -58,6 +58,10 @@ a {
   height: 35px;
 }
 
+.header-upper .header-upper-links p{
+  line-height: 20px;
+}
+
 .header-bottom {
   background-color: var(--color-232f3e);
 }
@@ -188,9 +192,7 @@ a {
 }
 
 
-/* home-wrapper-2 End*/
-
-/* HOME End 1:36 */ 
+/* HOME End */ 
 
 
 
