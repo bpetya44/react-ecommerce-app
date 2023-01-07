@@ -31,7 +31,7 @@ const Home = () => {
                   <img
                     src="images/headphones.jpg"
                     alt="small banner"
-                    className="img-fluid rounded-5"
+                    className="img-fluid rounded-3"
                   />
                   <div className="small-banner-content position-absolute p-2 rounded">
                     <h4>New</h4>
@@ -45,7 +45,7 @@ const Home = () => {
                   <img
                     src="images/ipad.jpg"
                     alt="small banner"
-                    className="img-fluid rounded-5"
+                    className="img-fluid rounded-3"
                   />
                   <div className="small-banner-content position-absolute p-2 rounded">
                     <h4>New</h4>
@@ -59,7 +59,7 @@ const Home = () => {
                   <img
                     src="images/smart-watch.jpg"
                     alt="small banner"
-                    className="img-fluid rounded-5"
+                    className="img-fluid rounded-3"
                   />
                   <div className="small-banner-content position-absolute p-2 rounded">
                     <h4>New</h4>
@@ -73,7 +73,7 @@ const Home = () => {
                   <img
                     src="images/laptop.jpg"
                     alt="small banner"
-                    className="img-fluid rounded-5"
+                    className="img-fluid rounded-3"
                   />
                   <div className="small-banner-content position-absolute p-2 rounded">
                     <h4>New</h4>
@@ -140,7 +140,83 @@ const Home = () => {
         </div>
       </section>
 
-      
+    {/* Third section Categories */}
+      <section className="home-wrapper-3 py-5">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <div className="categories d-flex justify-content-between aligh-items-center flex-wrap">
+                
+                <div className="d-flex align-items-center gap-1">
+                  <div>
+                    <h6>Computers & Laptop</h6>
+                    <p>8 Items</p>
+                  </div>
+                  <img src="images/laptop.png" alt="computers" />
+                </div>
+
+                <div className="d-flex align-items-center gap-1">
+                  <div>
+                    <h6>Smart TV</h6>
+                    <p>12 Items</p>
+                  </div>
+                  <img src="images/smart-tv.png" alt="smart tv" />
+                </div>
+
+                <div className="d-flex gap-1 align-items-center">
+                  <div>
+                    <h6>Mobile & Tablets</h6>
+                    <p>5 Items</p>
+                  </div>
+                  <img src="images/mobile.png" alt="mobile" />
+                </div>
+
+                <div className="d-flex gap-1 align-items-center">
+                  <div>
+                    <h6>Smart Watches</h6>
+                    <p>13 Items</p>
+                  </div>
+                  <img src="images/smart-watch.png" alt="smart watch" />
+                </div>
+
+                <div className="d-flex gap-1 align-items-center">
+                  <div>
+                    <h6>Cameras & Videos</h6>
+                    <p>10 Items</p>
+                  </div>
+                  <img src="images/camera.png" alt="camera" />
+                </div>
+
+                <div className="d-flex gap-1 align-items-center">
+                  <div>
+                    <h6>Music & Gaming</h6>
+                    <p>4 Items</p>
+                  </div>
+                  <img src="images/game-control.png" alt="games" />
+                </div>
+
+                <div className="d-flex gap-1 align-items-center">
+                  <div>
+                    <h6>Accesories</h6>
+                    <p>6 Items</p>
+                  </div>
+                  <img src="images/headphones.png" alt="Accessories" />
+                </div>
+
+                <div className="d-flex gap-1 align-items-center">
+                  <div>
+                    <h6>Home Appliences</h6>
+                    <p>8 Items</p>
+                  </div>
+                  <img src="images/toaster.png" alt="Home Appliances" />
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
     </>
   );
 };
