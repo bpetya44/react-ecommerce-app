@@ -196,6 +196,7 @@ a {
 .home-wrapper-3 {
   background-color: var(--color-f5f5dc);
 }
+
 .home-wrapper-3  .categories{
   background-color: var(--color-f5f5dc);
   box-shadow: 0 0 10px #0000001a;
@@ -225,7 +226,11 @@ a {
 .categories > div:nth-child(6),
 .categories > div:nth-child(7) {
   border-right: 1px solid var(--color-0000001a);
-  
+  /* box-shadow: 0 0 10px #0000001a; */
+}
+
+.marquee-inner-wrapper  {
+  box-shadow: 0 0 10px #0000001a; 
 }
 
 /* HOME End */ 

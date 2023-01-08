@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Marquee from "react-fast-marquee";
 
 const Home = () => {
   return (
@@ -217,6 +218,48 @@ const Home = () => {
         </div>
 
       </section>
+
+      {/* Marquee Section */}
+      <section>
+        <div className="marquee-wrapper">
+          <div className="container-2xxl">
+            <div className="row">
+              <div className="col-12">
+                <div className="marquee-inner-wrapper">
+                  <Marquee className="d-flex">
+                   <div className="mx-4 w-25">
+                    <img src="images/brand-01.png" alt="apple" />
+                  </div>
+                  <div className="mx-4 w-25">
+                    <img src="images/brand-02.png" alt="bose" />
+                  </div>
+                  <div className="mx-4 w-25">
+                    <img src="images/brand-03.png" alt="canon" />
+                  </div>
+                  <div className="mx-4 w-25">
+                    <img src="images/brand-04.png" alt="dell" />
+                  </div>
+                  <div className="mx-4 w-25">
+                    <img src="images/brand-05.png" alt="intel" />
+                  </div>
+                  <div className="mx-4 w-25">
+                    <img src="images/brand-06.png" alt="lg" />
+                  </div>
+                  <div className="mx-4 w-25">
+                      <img src="images/brand-07.png" alt="samsung" />
+                  </div>
+                  <div className="mx-4 w-25">
+                    <img src="images/brand-08.png" alt="sandisk" />
+                   </div>
+                  </Marquee>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
     </>
   );
 };
