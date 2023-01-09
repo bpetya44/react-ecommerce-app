@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import BlogCard from "../components/BlogCard";
 
 const Home = () => {
   return (
@@ -220,46 +221,59 @@ const Home = () => {
       </section>
 
       {/* Marquee Section */}
-      <section>
-        <div className="marquee-wrapper">
+      <section className="marquee-wrapper">
           <div className="container-2xxl">
             <div className="row">
               <div className="col-12">
                 <div className="marquee-inner-wrapper">
                   <Marquee className="d-flex">
-                   <div className="mx-4 w-25">
-                    <img src="images/brand-01.png" alt="apple" />
+                   <div className="mx-4 w-50">
+                    <img className="w-50 h-50" src="images/brand-01.png" alt="apple" />
                   </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/brand-02.png" alt="bose" />
+                  <div className="mx-4 w-50">
+                    <img className="w-50 h-50" src="images/brand-02.png" alt="bose" />
                   </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/brand-03.png" alt="canon" />
+                  <div className="mx-4 w-50">
+                    <img className="w-50 h-50" src="images/brand-03.png" alt="canon" />
                   </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/brand-04.png" alt="dell" />
+                  <div className="mx-4 w-50">
+                    <img className="w-50 h-50" src="images/brand-04.png" alt="dell" />
                   </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/brand-05.png" alt="intel" />
+                  <div className="mx-4 w-50">
+                    <img className="w-50 h-50" src="images/brand-05.png" alt="intel" />
                   </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/brand-06.png" alt="lg" />
+                  <div className="mx-4 w-50">
+                    <img className="w-50 h-50" src="images/brand-06.png" alt="lg" />
                   </div>
-                  <div className="mx-4 w-25">
-                      <img src="images/brand-07.png" alt="samsung" />
+                  <div className="mx-4 w-50">
+                      <img className="w-50 h-50" src="images/brand-07.png" alt="samsung" />
                   </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/brand-08.png" alt="sandisk" />
+                  <div className="mx-4 w-50">
+                    <img className="w-50 h-50" src="images/brand-08.png" alt="sandisk" />
                    </div>
                   </Marquee>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
 
-      
+      {/* Blog posts */}
+      <section className="blog-wrapper py-5 home-wrapper-2">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading text-white">Our Latest News </h3>
+            </div>
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+          </div>
+
+        </div>
+
+      </section>
     </>
   );
 };
