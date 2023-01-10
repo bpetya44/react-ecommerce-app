@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import BlogCard from "../components/BlogCard";
+import ProductCard from "../components/ProductCard"
 
 const Home = () => {
   return (
@@ -90,12 +91,11 @@ const Home = () => {
       </section>
 
       {/* Secondary section Services */}
-      <section className="home-wrapper-2 py-5">
+      <section className="home-wrapper-2 py-3">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
               <div className="services d-flex align-items-center justify-content-between">
-
                 <div className="d-flex align-items-center text-white text-muted gap-1">
                   <img src="images/delivery-50.png" alt="free shipping" />
                   <div>
@@ -135,20 +135,35 @@ const Home = () => {
                     <small>100% Protected</small>
                   </div>
                 </div>
-
+                
               </div>
             </div>
           </div>
         </div>
       </section>
+      
+      {/*Featured Collection */}
+      <section className="blog-wrapper py-5 home-wrapper-2">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading text-white">Featured Collection </h3>
+            </div>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+                        
+          </div>
+        </div>
+      </section>
 
-    {/* Third section Categories */}
+      {/* Categories */}
       <section className="home-wrapper-3 py-5">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
               <div className="categories d-flex justify-content-between aligh-items-center flex-wrap">
-                
                 <div className="d-flex align-items-center gap-1">
                   <div>
                     <h6>Computers & Laptop</h6>
@@ -212,50 +227,80 @@ const Home = () => {
                   </div>
                   <img src="images/toaster.png" alt="Home Appliances" />
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-
       </section>
 
       {/* Marquee Section */}
       <section className="marquee-wrapper">
-          <div className="container-2xxl">
-            <div className="row">
-              <div className="col-12">
-                <div className="marquee-inner-wrapper">
-                  <Marquee className="d-flex">
-                   <div className="mx-4 w-50">
-                    <img className="w-50 h-50" src="images/brand-01.png" alt="apple" />
+        <div className="container-2xxl">
+          <div className="row">
+            <div className="col-12">
+              <div className="marquee-inner-wrapper">
+                <Marquee className="d-flex">
+                  <div className="mx-4 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-01.png"
+                      alt="apple"
+                    />
                   </div>
                   <div className="mx-4 w-50">
-                    <img className="w-50 h-50" src="images/brand-02.png" alt="bose" />
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-02.png"
+                      alt="bose"
+                    />
                   </div>
                   <div className="mx-4 w-50">
-                    <img className="w-50 h-50" src="images/brand-03.png" alt="canon" />
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-03.png"
+                      alt="canon"
+                    />
                   </div>
                   <div className="mx-4 w-50">
-                    <img className="w-50 h-50" src="images/brand-04.png" alt="dell" />
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-04.png"
+                      alt="dell"
+                    />
                   </div>
                   <div className="mx-4 w-50">
-                    <img className="w-50 h-50" src="images/brand-05.png" alt="intel" />
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-05.png"
+                      alt="intel"
+                    />
                   </div>
                   <div className="mx-4 w-50">
-                    <img className="w-50 h-50" src="images/brand-06.png" alt="lg" />
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-06.png"
+                      alt="lg"
+                    />
                   </div>
                   <div className="mx-4 w-50">
-                      <img className="w-50 h-50" src="images/brand-07.png" alt="samsung" />
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-07.png"
+                      alt="samsung"
+                    />
                   </div>
                   <div className="mx-4 w-50">
-                    <img className="w-50 h-50" src="images/brand-08.png" alt="sandisk" />
-                   </div>
-                  </Marquee>
-                </div>
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-08.png"
+                      alt="sandisk"
+                    />
+                  </div>
+                </Marquee>
               </div>
             </div>
           </div>
+        </div>
       </section>
 
       {/* Blog posts */}
@@ -265,14 +310,12 @@ const Home = () => {
             <div className="col-12">
               <h3 className="section-heading text-white">Our Latest News </h3>
             </div>
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
+            <BlogCard />
+            <BlogCard />
+            <BlogCard />
+            <BlogCard />
           </div>
-
         </div>
-
       </section>
     </>
   );

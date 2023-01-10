@@ -97,6 +97,11 @@ a {
 .home-wrapper-1{
   background-color: var(--color-f5f5dc);
 }
+.main-banner:hover {
+ transform: scale(1.2);
+ z-index: 1;
+ transition: 0.3s;
+}
 .main-banner-content {
   top: 20%;
   left: 10%;
@@ -152,6 +157,12 @@ a {
   width: 49%;
 }
 
+.small-banner:hover {
+  transform: scale(1.3);
+  z-index: 1;
+  transition: 0.3s;
+}
+
 .small-banner-content {
   top: 20%;
   left: 10%;
@@ -190,6 +201,7 @@ a {
 /* home-wrapper-2 Services*/
 .home-wrapper-2 {
   background-color: var(--color-232f3e);
+
 }
 
 /* home-wrapper-3 Categories*/
@@ -266,6 +278,57 @@ a {
   background-color: var(--color-232f3e);
   margin-top: 10%;
 }
+
+/* Product Card */
+
+.product-card {
+  background-color: white;
+ padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.product-card:hover .action-bar{
+  right: 15px;
+}
+
+.product-card h6 {
+  color: var(--color-bf4800);
+  font-size: 18px;
+}
+
+.price {
+  color: var(--color-131921);
+  font-size: 24px;
+}
+
+.action-bar {
+  top: 55%;
+  right: -23%;
+  transition: 0.3s;
+}
+
+.action-bar img {
+  width: 25px;
+  height: auto;
+}
+
+.action-bar img:hover {
+ background-color: var(--color-febd69);
+ border-radius: 50%;
+}
+
+.wishlist-icon{
+  top: 5%;
+  right: 15px;
+}
+
+
 /* FOOTER */
 footer {
   background-color: var(--color-131921);
@@ -276,4 +339,4 @@ footer .input-group-text {
   color: white;
   text-transform: uppercase;
 }
-/* FOOTER End */
+/* FOOTER End2.42 */
