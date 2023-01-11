@@ -3,40 +3,39 @@ import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import { Link } from "react-router-dom";
 
-const Forgotpassword = () => {
+const Resetpassword = () => {
   return (
     <>
-      <Meta title={"Forgot password"} />
-      <BreadCrumb title="Forgot password" />
+      <Meta title={"Reset password"} />
+      <BreadCrumb title="Reset password" />
 
       <div className="login-wrapper home-wrapper py-5">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
               <div className="auth-card">
-                <h3 className="text-center mb-3">Forgot Your Password</h3>
-                <p className="text-center mb-4">
-                  We will send you an email to reset your password
-                </p>
+                <h3 className="text-center mb-3">Reset Password</h3>
                 <form action="" className="d-flex flex-column gap-3">
                   <div>
                     <input
-                      type="email"
-                      name="email"
+                      type="password"
+                      name="password"
                       className="form-control"
-                      placeholder="Email"
+                      placeholder="Password"
                     />
                   </div>
                   <div>
+                    <input
+                      type="password"
+                      name="confpassword"
+                      className="form-control"
+                      placeholder=" Confirm Password"
+                    />
                     <div className="mb-2">
-                      <div className="d-flex flex-column justify-content-center align-items-center gap-15">
-                        <button
-                          className="button login border-0 mt-2"
-                          type="Submit"
-                        >
+                      <div className="d-flex justify-content-center align-items-center gap-15">
+                        <button className="button login border-0 mt-4">
                           Submit
                         </button>
-                        <Link to="/login">Cancel</Link>
                       </div>
                     </div>
                   </div>
@@ -50,4 +49,4 @@ const Forgotpassword = () => {
   );
 };
 
-export default Forgotpassword;
+export default Resetpassword;

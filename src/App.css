@@ -98,7 +98,7 @@ a {
 
 /* HOME */
 .home-wrapper-1 {
-  background-color: var(--color-f5f5dc);
+  background-color: var(--color-f7f7f7);
 }
 .main-banner:hover {
   transform: scale(1.2);
@@ -208,7 +208,7 @@ a {
 
 /* home-wrapper-3 Categories*/
 .home-wrapper-3 {
-  background-color: var(--color-f5f5dc);
+  background-color: var(--color-f7f7f7);
 }
 
 .home-wrapper-3 .categories {
@@ -549,6 +549,7 @@ footer .input-group-text {
 }
 
 /* Login auth card*/
+
 .auth-card {
   padding: 20px;
   width: 500px;
@@ -562,6 +563,10 @@ footer .input-group-text {
 }
 
 .auth-card h3 {
+  color: var(--color-777777);
+}
+.auth-card p {
+  font-size: 16px;
   color: var(--color-777777);
 }
 
