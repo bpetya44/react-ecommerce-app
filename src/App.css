@@ -485,4 +485,19 @@ footer .input-group-text {
   top: 25%;
 }
 
-/* Blog */
+/* Contact Page */
+.contact-inner-wrapper > div {
+  width: 48%;
+}
+
+.contact-inner-wrapper .form-control {
+  margin-bottom: 20px;
+}
+
+.contact-inner-wrapper ul {
+  list-style: none;
+}
+
+.contact-inner-wrapper a {
+  color: white;
+}
