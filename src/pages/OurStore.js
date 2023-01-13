@@ -4,6 +4,7 @@ import Meta from "../components/Meta";
 import ReactStars from "react-rating-stars-component";
 import { useState } from "react";
 import ProductCard from "../components/ProductCard";
+import Colors from "../components/Colors";
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
@@ -84,24 +85,7 @@ const OurStore = () => {
 
                 <h5 className="sub-title">Colors</h5>
                 <div>
-                  <ul className="colors ps-0">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                  </ul>
+                  <Colors />
                 </div>
 
                 <h5 className="sub-title">Size</h5>

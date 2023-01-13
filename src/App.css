@@ -501,3 +501,45 @@ footer .input-group-text {
 .contact-inner-wrapper a {
   color: white;
 }
+
+/* Compare Product Page */
+.compare-product-card {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.compare-product-card .cross {
+  width: 25px;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  padding: 3px;
+}
+.compare-product-card .cross:hover {
+  background-color: var(--color-0000001a);
+}
+
+.compare-product-details h5.title {
+  margin-top: 20px;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--color-1c1c1b);
+}
+
+.compare-product-details h6.price {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.compare-product-card .product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  border-top: 1px solid var(--color-0000001a);
+}

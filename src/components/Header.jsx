@@ -31,7 +31,9 @@ const Header = () => {
           <div className="row align-items-center">
             <div className="col-2">
               <h2>
-                <Link className="text-white">Shop Corner</Link>
+                <Link className="text-white" to="/">
+                  Shop Corner
+                </Link>
               </h2>
             </div>
             <div className="col-4">
@@ -51,7 +53,10 @@ const Header = () => {
             <div className="col-6">
               <div className="header-upper-links d-flex align-items-center justify-content-between">
                 <div>
-                  <Link className="d-flex align-items-center text-white gap-10">
+                  <Link
+                    to="/compare-product"
+                    className="d-flex align-items-center text-white gap-10"
+                  >
                     <img src="images/compare-blue.png" alt="Compare Products" />
                     <p className="mb-0">
                       Compare <br /> Products
@@ -59,7 +64,10 @@ const Header = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link className="d-flex align-items-center text-white gap-1">
+                  <Link
+                    to="/wishlist"
+                    className="d-flex align-items-center text-white gap-1"
+                  >
                     <img src="images/heart-blue.png" alt="Add to favourite" />
                     <p className="mb-0">
                       Add to <br />
@@ -68,7 +76,10 @@ const Header = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link className="d-flex align-items-center text-white gap-1">
+                  <Link
+                    to="/login"
+                    className="d-flex align-items-center text-white gap-1"
+                  >
                     <img src="images/customer-blue.png" alt="Log in" />
                     <p className="mb-0">
                       Log in <br /> My Account
@@ -76,7 +87,10 @@ const Header = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link className="d-flex align-items-center text-white gap-1">
+                  <Link
+                    to="/cart"
+                    className="d-flex align-items-center text-white gap-1"
+                  >
                     <img
                       src="images/shopping-cart.png"
                       alt="Shopping Cart"
@@ -108,26 +122,33 @@ const Header = () => {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="images/menu.png" style={{width:35}} alt="menu" />
-                      <span className="d-inline-block ms-4 me-4"> Categories</span>
+                      <img
+                        src="images/menu.png"
+                        style={{ width: 35 }}
+                        alt="menu"
+                      />
+                      <span className="d-inline-block ms-4 me-4">
+                        {" "}
+                        Categories
+                      </span>
                     </button>
                     <ul className="dropdown-menu">
                       <li>
                         <Link className="dropdown-item text-white" to="#">
-                        Category1
+                          Category1
                         </Link>
                       </li>
-                     <li>
+                      <li>
                         <Link className="dropdown-item text-white" to="#">
-                        Category2
+                          Category2
                         </Link>
                       </li>
-                     <li>
+                      <li>
                         <Link className="dropdown-item text-white" to="#">
-                        Category3
+                          Category3
                         </Link>
                       </li>
-                   </ul>
+                    </ul>
                   </div>
                   {/* End Dropdown */}
                 </div>
