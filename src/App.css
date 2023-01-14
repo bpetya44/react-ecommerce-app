@@ -15,6 +15,7 @@
   --color-0000001a: #0000001a;
   --color-777777: #777777;
   --color-1c1c1b: #1c1c1b;
+  --color-f7f7f7: #f7f7f7;
 }
 
 body {
@@ -153,6 +154,7 @@ a {
   background-color: var(--color-eea444);
   color: white;
   transform: translateY(5px);
+  transition: 0.3s;
 }
 
 .small-banner {
@@ -544,4 +546,36 @@ footer .input-group-text {
   align-items: center;
   padding: 10px 0px;
   border-top: 1px solid var(--color-0000001a);
+}
+
+/* Login auth card*/
+.auth-card {
+  padding: 20px;
+  width: 500px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.9px);
+  -webkit-backdrop-filter: blur(1.9px);
+  border: 1px solid rgba(255, 255, 255, 0.91);
+}
+
+.auth-card h3 {
+  color: var(--color-777777);
+}
+
+.auth-card .form-control {
+  background-color: var(--color-f7f7f7);
+}
+.auth-card a {
+  color: var(--color-5573e2);
+}
+
+button.button.login {
+  background-color: var(--color-232f3e);
+}
+
+button.button.login:hover {
+  color: var(--color-eea444);
 }
