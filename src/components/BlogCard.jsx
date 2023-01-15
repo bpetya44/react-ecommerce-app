@@ -17,7 +17,7 @@ const BlogCard = () => {
         <p className="desc text-muted">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
-        <Link className="button" to="#">
+        <Link className="button" to="blog/:id">
           Read more
         </Link>
       </div>

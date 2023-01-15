@@ -326,6 +326,20 @@ footer .input-group-text {
   margin-top: 10%;
 }
 
+.single-blog-card {
+  color: white;
+}
+.single-blog-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.single-blog-card a {
+  font-size: 16px;
+  color: var(--color-777777);
+  margin-bottom: 20px;
+}
+
 /* Product Card */
 
 .product-card {
