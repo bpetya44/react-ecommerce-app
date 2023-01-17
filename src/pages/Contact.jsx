@@ -1,6 +1,6 @@
 import React from "react";
-import BreadCrumb from "../components/BreadCrumb";
-import Meta from "../components/Meta";
+import { BreadCrumb, Meta } from "../components/index";
+
 import { FaHome } from "react-icons/fa";
 import { BiPhoneCall } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";

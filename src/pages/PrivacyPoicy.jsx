@@ -1,12 +1,11 @@
 import React from "react";
-import BreadCrumb from "../components/BreadCrumb";
-import Meta from "../components/Meta";
+import { BreadCrumb, Meta } from "../components/index";
 
-const TermsAndConditions = () => {
+const PrivacyPoicy = () => {
   return (
     <>
-      <Meta title={"Terms and Conditions"} />
-      <BreadCrumb title="Terms and Conditions" />
+      <Meta title={"Priavacy Policy"} />
+      <BreadCrumb title="Priavacy Policy" />
 
       <section className="policy-wrapper py-5 home-wrapper-2">
         <div className="container-xxl">
@@ -21,4 +20,4 @@ const TermsAndConditions = () => {
   );
 };
 
-export default TermsAndConditions;
+export default PrivacyPoicy;

@@ -1,5 +1,4 @@
-import BreadCrumb from "../components/BreadCrumb";
-import Meta from "../components/Meta";
+import { BreadCrumb, Meta } from "../components/index";
 import { Link } from "react-router-dom";
 import { BiLeftArrow } from "react-icons/bi";
 

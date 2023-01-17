@@ -1,7 +1,5 @@
 import React from "react";
-import BreadCrumb from "../components/BreadCrumb";
-import Colors from "../components/Colors";
-import Meta from "../components/Meta";
+import { BreadCrumb, Meta, Colors } from "../components/index";
 
 const CompareProduct = () => {
   return (
