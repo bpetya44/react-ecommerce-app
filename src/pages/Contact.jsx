@@ -31,6 +31,7 @@ const Contact = () => {
               <div className="contact-inner-wrapper d-flex justify-content-between text-white">
                 <div>
                   <h3 className="contact-title mb-3">Contact </h3>
+
                   <form action="" className="d-flex flex-column">
                     <div>
                       <input
@@ -58,7 +59,7 @@ const Contact = () => {
                       ></textarea>
                     </div>
                     <div>
-                      <button className="button mt-0">Send</button>
+                      <button className="button mt-0 border-0">Send</button>
                     </div>
                   </form>
                 </div>

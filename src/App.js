@@ -17,6 +17,7 @@ import {
   ShippingPolicy,
   Signup,
   SingleBlog,
+  SingleProduct,
   TermsAndConditions,
   Wishlist,
 } from "./pages/index";
@@ -31,6 +32,8 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="store" element={<OurStore />} />
+            <Route path="store/product/:id" element={<SingleProduct />} />
+            <Route path="/product/:id" element={<SingleProduct />} />
             <Route path="blogs" element={<Blog />} />
             <Route path="blog/:id" element={<SingleBlog />} />
             <Route path="blogs/blog/:id" element={<SingleBlog />} />
