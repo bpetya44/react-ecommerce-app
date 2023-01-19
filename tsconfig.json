@@ -1,6 +1,0 @@
- "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "react-rating-stars-component.d.ts"
-
-  ],

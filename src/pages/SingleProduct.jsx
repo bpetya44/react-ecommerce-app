@@ -2,9 +2,17 @@ import ReactStars from "react-rating-stars-component";
 import { BreadCrumb, Meta, ProductCard } from "../components/index";
 import { useState } from "react";
 
+import ReactImageZoom from "react-image-zoom";
+
 const SingleProduct = () => {
   const [orderedProduct, setOrderedProduct] = useState(true);
 
+  const props = {
+    width: 600,
+    height: 500,
+    zoomWidth: 500,
+    img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  };
   return (
     <>
       <Meta title={"Product Name"} />
@@ -13,7 +21,43 @@ const SingleProduct = () => {
       <div className="main-product-wrapper home-wrapper-2 py-5">
         <div className="container-xxl">
           <div className="row">
-            <div className="col-6"></div>
+            <div className="col-6">
+              <div className="main-product-image">
+                <div>
+                  <ReactImageZoom {...props} />
+                </div>
+              </div>
+              <div className="other-product-images d-flex flex-wrap gap-15">
+                <div>
+                  <img
+                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt=""
+                    className="img-fluid"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt=""
+                    className="img-fluid"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt=""
+                    className="img-fluid"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt=""
+                    className="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
             <div className="col-6"></div>
           </div>
         </div>
