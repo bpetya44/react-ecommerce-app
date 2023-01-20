@@ -1,6 +1,7 @@
 import ReactStars from "react-rating-stars-component";
-import { BreadCrumb, Meta, ProductCard } from "../components/index";
+import { BreadCrumb, Colors, Meta, ProductCard } from "../components/index";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import ReactImageZoom from "react-image-zoom";
 
@@ -11,7 +12,7 @@ const SingleProduct = () => {
     width: 600,
     height: 500,
     zoomWidth: 500,
-    img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    img: "https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60",
   };
   return (
     <>
@@ -30,35 +31,123 @@ const SingleProduct = () => {
               <div className="other-product-images d-flex flex-wrap gap-15">
                 <div>
                   <img
-                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    src="https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
                     alt=""
                     className="img-fluid"
                   />
                 </div>
                 <div>
                   <img
-                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    src="https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
                     alt=""
                     className="img-fluid"
                   />
                 </div>
                 <div>
                   <img
-                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    src="https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
                     alt=""
                     className="img-fluid"
                   />
                 </div>
                 <div>
                   <img
-                    src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    src="https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
                     alt=""
                     className="img-fluid"
                   />
                 </div>
               </div>
             </div>
-            <div className="col-6"></div>
+            <div className="col-6">
+              <div className="main-product-details">
+                <div className="border-bottom">
+                  <h1 className="title">Men's Watch</h1>
+                </div>
+                <div className="border-bottom">
+                  <p className="price">Price: $100</p>
+                  <div className="d-flex align-items-center gap-10">
+                    <ReactStars>
+                      count={5}
+                      size={28}
+                      value={3}
+                      edit={false}
+                      activeColor="#ffd700"
+                    </ReactStars>
+                    <p className="mb-0 text-muted">(2 reviews)</p>
+                  </div>
+                  <a className="text-dark text-muted py-2" href="#review">
+                    Write a review
+                  </a>
+                </div>
+                <div className="border-bottom">
+                  <div className="d-flex align-items-center gap-10 my-1">
+                    <h4 className="product-heading">Type:</h4>
+                    <p className="product-data">Watch</p>
+                  </div>
+                  <div className="d-flex align-items-center gap-10 my-1">
+                    <h4 className="product-heading">Brand:</h4>
+                    <p className="product-data">Rolex</p>
+                  </div>
+                  <div className="d-flex align-items-center gap-10 my-1">
+                    <h4 className="product-heading">Category:</h4>
+                    <p className="product-data">Watch</p>
+                  </div>
+                  <div className="d-flex align-items-center gap-10 my-1">
+                    <h4 className="product-heading">Tags:</h4>
+                    <p className="product-data">Watch</p>
+                  </div>
+                  <div className="d-flex align-items-center gap-10 my-1">
+                    <h4 className="product-heading">Availabuility:</h4>
+                    <p className="product-data">In Stock</p>
+                  </div>
+
+                  <div className="d-flex flex-column gap-10 mt-2 mb-3">
+                    <h4 className="product-heading">Size:</h4>
+                    <div className="d-flex flex-wrap gap-15">
+                      <span className="badge border border-1 text-dark bg-white">
+                        S
+                      </span>
+                      <span className="badge border border-1 text-dark bg-white">
+                        M
+                      </span>
+                      <span className="badge border border-1 text-dark bg-white">
+                        L
+                      </span>
+                      <span className="badge border border-1 text-dark bg-white">
+                        XL
+                      </span>
+                    </div>
+                  </div>
+                  <div className="d-flex flex-column gap-10 mt-2">
+                    <h4 className="product-heading">Color:</h4>
+                    <Colors />
+                  </div>
+                  <div className="d-flex align-items-center gap-10 mt-0 mb-3">
+                    <h4 className="product-heading">Quantity:</h4>
+                    <div className="">
+                      <input
+                        type="number"
+                        name=""
+                        min={1}
+                        max={10}
+                        style={{ width: "75px" }}
+                        className="form-control"
+                      />
+                    </div>
+                    <div className="d-flex align-itens-center gap-10 mt-0 mb-3">
+                      <button
+                        className="button login border-0 mt-4"
+                        type="submit"
+                      >
+                        Add to Cart
+                      </button>
+                      <button className="button mt-4 border-0">Buy Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -85,7 +174,9 @@ const SingleProduct = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <h4 className=" text-white mb-2">Customer Reviews</h4>
+              <h4 id="review" className=" text-white mb-2">
+                Customer Reviews
+              </h4>
               <div className="review-inner-wrapper">
                 <div
                   className="review-head d-flex align-items-end
