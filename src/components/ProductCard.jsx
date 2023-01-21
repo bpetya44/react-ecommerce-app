@@ -2,6 +2,12 @@ import ReactStars from "react-rating-stars-component";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import wishlist from "../images/wishlist.svg";
+import watch from "../images/smart-watch.jpg";
+import prodcompare from "../images/prodcompare.svg";
+import view from "../images/view.svg";
+import addcart from "../images/add-cart.svg";
+
 const ProductCard = (props) => {
   const { grid } = props;
   let location = useLocation();
@@ -15,15 +21,11 @@ const ProductCard = (props) => {
         <Link to="product/:id" className="product-card position-relative">
           <div className="wishlist-icon position-absolute">
             <Link>
-              <img src="images/wishlist.svg" alt="wishlist" />
+              <img src={wishlist} alt="wishlist" />
             </Link>
           </div>
           <div className="product-image">
-            <img
-              className="img-fluid"
-              src="images/smart-watch.jpg"
-              alt="product"
-            />
+            <img className="img-fluid" src={watch} alt="product" />
           </div>
           <div className="product-details p-3">
             <h6 className="brand mt-1">Have</h6>
@@ -57,13 +59,13 @@ const ProductCard = (props) => {
             <div className="d-flex flex-column gap-30">
               {" "}
               <Link>
-                <img src="images/prodcompare.svg" alt="compare" />
+                <img src={prodcompare} alt="compare" />
               </Link>
               <Link>
-                <img src="images/view.svg" alt="veiw " />
+                <img src={view} alt="veiw " />
               </Link>
               <Link>
-                <img src="images/add-cart.svg" alt="add to cart" />
+                <img src={addcart} alt="add to cart" />
               </Link>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { BreadCrumb, Meta } from "../components/index";
 import { Link } from "react-router-dom";
 import { BiLeftArrow } from "react-icons/bi";
+import blog from "../images/blog-1.jpg";
 
 const SingleBlog = () => {
   return (
@@ -20,7 +21,7 @@ const SingleBlog = () => {
 
                 <img
                   className="img-fluid w-100 my-4"
-                  src="images/blog-1.jpg"
+                  src={blog}
                   alt="single blog"
                 />
                 <p>

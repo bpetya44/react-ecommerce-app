@@ -684,8 +684,9 @@ button.button.login:hover {
   color: var(--color-3b4149);
 }
 .main-product-details p,
-a {
+.main-product-details a {
   font-size: 16px;
+  color: var(--color-3b4149);
 }
 
 .product-heading {

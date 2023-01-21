@@ -2,6 +2,9 @@ import ReactStars from "react-rating-stars-component";
 import { BreadCrumb, Colors, Meta, ProductCard } from "../components/index";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { TbHeartPlus } from "react-icons/tb";
+import { DiGitCompare } from "react-icons/di";
+import { BiCopy } from "react-icons/bi";
 
 import ReactImageZoom from "react-image-zoom";
 
@@ -14,6 +17,11 @@ const SingleProduct = () => {
     zoomWidth: 500,
     img: "https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60",
   };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+  };
+
   return (
     <>
       <Meta title={"Product Name"} />
@@ -80,7 +88,7 @@ const SingleProduct = () => {
                     Write a review
                   </a>
                 </div>
-                <div className="border-bottom">
+                <div className="border-bottomS">
                   <div className="d-flex align-items-center gap-10 my-1">
                     <h4 className="product-heading">Type:</h4>
                     <p className="product-data">Watch</p>
@@ -145,6 +153,35 @@ const SingleProduct = () => {
                       <button className="button mt-4 border-0">Buy Now</button>
                     </div>
                   </div>
+                  <div className="d-flex align-items-center gap-30">
+                    <div>
+                      <a href="/">
+                        <DiGitCompare className="fs-5" /> Add to compare
+                      </a>
+                    </div>
+                    <div>
+                      <a href="/">
+                        <TbHeartPlus className="fs-5 mx-1" />
+                        Add to favourite
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="d-flex flex-column gap-10 my-3">
+                  <h4 className="product-heading">Shipping & Returns</h4>
+                  <p className="product-data">
+                    Free shipping and returns available on all orders! <br /> We
+                    ship all orders within <b>2-5 business days.</b>
+                  </p>
+                </div>
+                <div className="d-flex align-items-center gap-10 my-3">
+                  <h4 className="product-heading">Copy Product Link:</h4>
+                  <a
+                    href="javascript:void(0)"
+                    onClick={() => copyToClipboard("product link")}
+                  >
+                    <BiCopy className="fs-5" />
+                  </a>
                 </div>
               </div>
             </div>
