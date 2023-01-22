@@ -15,6 +15,7 @@ import SingleBlog from "./SingleBlog";
 import TermsAndConditions from "./TermsAndConditions";
 import Wishlist from "./Wishlist";
 import SingleProduct from "./SingleProduct";
+import Cart from "./Cart";
 
 export {
   Home,
@@ -34,4 +35,5 @@ export {
   TermsAndConditions,
   Wishlist,
   SingleProduct,
+  Cart,
 };

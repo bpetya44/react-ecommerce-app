@@ -1,7 +1,6 @@
 import ReactStars from "react-rating-stars-component";
 import { BreadCrumb, Colors, Meta, ProductCard } from "../components/index";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { TbHeartPlus } from "react-icons/tb";
 import { DiGitCompare } from "react-icons/di";
 import { BiCopy } from "react-icons/bi";

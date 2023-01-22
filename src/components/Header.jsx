@@ -1,6 +1,10 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
+import compare from "../images/compare-blue.png";
+import favourite from "../images/heart-blue.png";
+import customer from "../images/customer-blue.png";
+import cart from "../images/shopping-cart.png";
 
 const Header = () => {
   return (
@@ -57,7 +61,7 @@ const Header = () => {
                     to="/compare-product"
                     className="d-flex align-items-center text-white gap-10"
                   >
-                    <img src="images/compare-blue.png" alt="Compare Products" />
+                    <img src={compare} alt="Compare Products" />
                     <p className="mb-0">
                       Compare <br /> Products
                     </p>
@@ -68,7 +72,7 @@ const Header = () => {
                     to="/wishlist"
                     className="d-flex align-items-center text-white gap-1"
                   >
-                    <img src="images/heart-blue.png" alt="Add to favourite" />
+                    <img src={favourite} alt="Add to favourite" />
                     <p className="mb-0">
                       Add to <br />
                       Favourite
@@ -80,7 +84,7 @@ const Header = () => {
                     to="/login"
                     className="d-flex align-items-center text-white gap-1"
                   >
-                    <img src="images/customer-blue.png" alt="Log in" />
+                    <img src={customer} alt="Log in" />
                     <p className="mb-0">
                       Log in <br /> My Account
                     </p>
@@ -92,7 +96,7 @@ const Header = () => {
                     className="d-flex align-items-center text-white gap-1"
                   >
                     <img
-                      src="images/shopping-cart.png"
+                      src={cart}
                       alt="Shopping Cart"
                       style={{ width: 50, height: 50 }}
                     />{" "}

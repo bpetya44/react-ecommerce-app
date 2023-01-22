@@ -20,6 +20,7 @@ import {
   SingleProduct,
   TermsAndConditions,
   Wishlist,
+  Cart,
 } from "./pages/index";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
               element={<TermsAndConditions />}
             />
             <Route path="refund-policy" element={<RefundPolicy />} />
+            <Route path="cart" element={<Cart />} />
           </Route>
         </Routes>
       </BrowserRouter>
