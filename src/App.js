@@ -21,6 +21,7 @@ import {
   TermsAndConditions,
   Wishlist,
   Cart,
+  Checkout,
 } from "./pages/index";
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
             />
             <Route path="refund-policy" element={<RefundPolicy />} />
             <Route path="cart" element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -8,12 +8,13 @@ const Cart = () => {
   return (
     <>
       <Meta title={"Shopping Cart"} />
-      <BreadCrumb title="Your Shopping Cart" />
+      <BreadCrumb title="Shopping Cart" />
       <section className="cart-wrapper home-wrapper-2 py-5">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <div className="cart-inner-wrapper">
+              <h4 className="text-white mb-3 ms-3"> Shopping Cart</h4>
+              <div className="cart-inner-wrapper pt-4">
                 <div className="cart-header d-flex justify-content-between align-items-center ">
                   <h4 className="cart-col-1">Product</h4>
                   <h4 className="cart-col-2">Price</h4>
@@ -36,10 +37,17 @@ const Cart = () => {
                   </div>
                   <div className="cart-col-3 d-flex align-items-center gap-15">
                     <div>
-                      <input type="number" name="" id="" min={1} max={10} />
+                      <input
+                        type="number"
+                        name=""
+                        id=""
+                        min={1}
+                        max={10}
+                        className="form-control"
+                      />
                     </div>
                     <div>
-                      <RiDeleteBin5Line className="fs-5 text-danger ms-2" />
+                      <RiDeleteBin5Line className="fs-4 text-danger" />
                     </div>
                   </div>
                   <div className="cart-col-4">
@@ -62,10 +70,17 @@ const Cart = () => {
                   </div>
                   <div className="cart-col-3 d-flex align-items-center gap-15">
                     <div>
-                      <input type="number" name="" id="" min={1} max={10} />
+                      <input
+                        type="number"
+                        name=""
+                        id=""
+                        min={1}
+                        max={10}
+                        className="form-control"
+                      />
                     </div>
                     <div>
-                      <RiDeleteBin5Line className="fs-5 text-danger ms-2" />
+                      <RiDeleteBin5Line className="fs-4 text-danger" />
                     </div>
                   </div>
                   <div className="cart-col-4">
@@ -73,7 +88,7 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <div className="cart-data col-12 my-3 pe-5">
+                <div className="cart-data-bottom col-12 my-3 pe-5">
                   <div className="d-flex justify-content-between align-items-baseline">
                     <Link to="/product" className="button mt-3">
                       Continue Shopping

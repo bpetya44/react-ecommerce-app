@@ -725,7 +725,7 @@ button.button.login:hover {
   width: 40%;
 }
 .cart-col-1 p,
-.cart-data p {
+.cart-data-bottom p {
   color: var(--color-777777);
   font-size: 16px;
 }
@@ -739,6 +739,14 @@ button.button.login:hover {
   width: 15%;
 }
 
+.cart-data .form-control {
+  width: 70%;
+}
 .cart-data .subtotal {
   font-size: 20px;
+}
+
+.checkout-right-data {
+  margin-top: 95px;
+  margin-left: -20px;
 }
