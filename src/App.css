@@ -750,3 +750,12 @@ button.button.login:hover {
   margin-top: 95px;
   margin-left: -20px;
 }
+
+.checkout-right-data .title,
+.checkout-right-data .price {
+  font-size: 20px;
+}
+.checkout-right-data .article {
+  font-size: 16px;
+  color: var(--color-777777);
+}

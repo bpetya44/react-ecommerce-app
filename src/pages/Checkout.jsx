@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
+import watch from "../images/watch.jpg";
 
 const Checkout = () => {
   return (
@@ -11,6 +12,7 @@ const Checkout = () => {
             <div className="col-7">
               <div className="ckeckout-left-data">
                 <h3 className="website-name text-white">Checkout</h3>
+                {/* Breadcrumb */}
                 <nav style={{ fontSize: "0.8rem" }} aria-label="breadcrumb">
                   <ol className="breadcrumb text-muted">
                     <li className="breadcrumb-item">
@@ -28,6 +30,8 @@ const Checkout = () => {
                     <li className="breadcrumb-item">Payment</li>
                   </ol>
                 </nav>
+
+                {/* Checkout form */}
                 <div className="checkout-inner-wrapper bg-white border rounded py-3 px-3">
                   <h4 className="title">Contact Information</h4>
                   <p className="user-details">
@@ -118,13 +122,45 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
+
+            {/* Right side data */}
             <div className="col-5">
               <div className="checkout-right-data bg-white border rounded py-3 px-3">
-                <h4 className="title">Order Summary</h4>
+                <h4 className="title border-bottom mt-0 pb-2">Order Summary</h4>
+                <div className="border-bottom">
+                  <div className="d-flex justify-content-between my-3 ">
+                    <div className="w-25 position-relative">
+                      <span
+                        className="badge bg-warning rounded-circle position-absolute p-2 "
+                        style={{ right: "-20px", top: "0" }}
+                      >
+                        1
+                      </span>
+                      <img
+                        className="img-fluid border rounded m-2"
+                        src={watch}
+                        alt="product"
+                      />
+                    </div>
+                    <div className="ms-3">
+                      <h5 className="title">Best for sport</h5>
+                      <p className="article">Art #:</p>
+                    </div>
+                    <h5 className="mt-0 price">$ 100.00</h5>
+                  </div>
+                </div>
+                <div className="d-flex justify-content-between align-items-center my-3">
+                  <p>SubTotal:</p>
+                  <p>$ 100.00</p>
+                </div>
+                <div className="d-flex justify-content-between align-items-center my-3 border-bottom">
+                  <p>Shipping:</p>
+                  <p>$ 0.00</p>
+                </div>
 
                 <div className="d-flex justify-content-between align-items-center my-3">
                   <h5>Total:</h5>
-                  <h5>$ 0.00</h5>
+                  <h5>$ 100.00</h5>
                 </div>
               </div>
             </div>
