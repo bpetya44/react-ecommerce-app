@@ -187,218 +187,205 @@ const Home = () => {
       </Container>
 
       {/*Featured Collection */}
-      <section className="blog-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <h3 className="section-heading text-white">
-                Featured Collection{" "}
-              </h3>
-            </div>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+      <Container class1="blog-wrapper py-5 home-wrapper-2">
+        <div className="row">
+          <div className="col-12">
+            <h3 className="section-heading text-white">Featured Collection </h3>
           </div>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
-      </section>
+      </Container>
 
       {/* Famous Product Cards */}
-      <section className="famous-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-3">
-              <div className="famous-card position-relative ">
-                <img
-                  className="img-fluid"
-                  src="images/watches.png"
-                  alt="smart watches"
-                />
-                <div className="famous-content position-absolute">
-                  <h6>Smart Watches</h6>
-                  <h5>Smart Watch Series</h5>
-                  <p>From $399</p>
-                </div>
+
+      <Container class1="famous-wrapper py-5 home-wrapper-2">
+        <div className="row">
+          <div className="col-3">
+            <div className="famous-card position-relative ">
+              <img
+                className="img-fluid"
+                src="images/watches.png"
+                alt="smart watches"
+              />
+              <div className="famous-content position-absolute">
+                <h6>Smart Watches</h6>
+                <h5>Smart Watch Series</h5>
+                <p>From $399</p>
               </div>
             </div>
+          </div>
 
-            <div className="col-3">
-              <div className="famous-card position-relative ">
-                <img
-                  className="img-fluid"
-                  src="images/lenovo.png"
-                  alt="tablet lenovo"
-                />
-                <div className="famous-content position-absolute">
-                  <h6 className="text-dark">Tablets</h6>
-                  <h5 className="text-dark">Lenovo Tab M8 HD </h5>
-                  <p className="text-dark">From $199</p>
-                </div>
+          <div className="col-3">
+            <div className="famous-card position-relative ">
+              <img
+                className="img-fluid"
+                src="images/lenovo.png"
+                alt="tablet lenovo"
+              />
+              <div className="famous-content position-absolute">
+                <h6 className="text-dark">Tablets</h6>
+                <h5 className="text-dark">Lenovo Tab M8 HD </h5>
+                <p className="text-dark">From $199</p>
               </div>
             </div>
+          </div>
 
-            <div className="col-3">
-              <div className="famous-card position-relative ">
-                <img
-                  className="img-fluid"
-                  src="images/iphone-13.png"
-                  alt="iPhone 13 Pro pink"
-                />
-                <div className="famous-content position-absolute">
-                  <h6 className="text-dark">Smart phones</h6>
-                  <h5 className="text-dark">Apple iPhone 13, 128GB</h5>
-                  <p className="text-dark">From $799</p>
-                </div>
+          <div className="col-3">
+            <div className="famous-card position-relative ">
+              <img
+                className="img-fluid"
+                src="images/iphone-13.png"
+                alt="iPhone 13 Pro pink"
+              />
+              <div className="famous-content position-absolute">
+                <h6 className="text-dark">Smart phones</h6>
+                <h5 className="text-dark">Apple iPhone 13, 128GB</h5>
+                <p className="text-dark">From $799</p>
               </div>
             </div>
+          </div>
 
-            <div className="col-3">
-              <div className="famous-card position-relative ">
-                <img
-                  className="img-fluid"
-                  src="images/akai.png"
-                  alt="Akai speaker"
-                />
-                <div className="famous-content position-absolute">
-                  <h6 className="text-dark">Home Speakers</h6>
-                  <h5 className="text-dark">AKAI DJ-880, 100W</h5>
-                  <p className="text-dark">From $99</p>
-                </div>
+          <div className="col-3">
+            <div className="famous-card position-relative ">
+              <img
+                className="img-fluid"
+                src="images/akai.png"
+                alt="Akai speaker"
+              />
+              <div className="famous-content position-absolute">
+                <h6 className="text-dark">Home Speakers</h6>
+                <h5 className="text-dark">AKAI DJ-880, 100W</h5>
+                <p className="text-dark">From $99</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </Container>
 
       {/* Special Products */}
-      <section className="special-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <h3 className="section-heading text-white text-center">
-                Special Products
-              </h3>
-            </div>
-          </div>
-          <div className="row">
-            <SpecialProduct />
-            <SpecialProduct />
-            <SpecialProduct />
+      <Container class1="special-wrapper py-5 home-wrapper-2">
+        <div className="row">
+          <div className="col-12">
+            <h3 className="section-heading text-white text-center">
+              Special Products
+            </h3>
           </div>
         </div>
-      </section>
+        <div className="row">
+          <SpecialProduct />
+          <SpecialProduct />
+          <SpecialProduct />
+        </div>
+      </Container>
 
       {/*Popular Products */}
-      <section className="popular-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <h3 className="section-heading text-white text-center">
-                Popular Products{" "}
-              </h3>
-            </div>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+      <Container class1="popular-wrapper py-5 home-wrapper-2">
+        <div className="row">
+          <div className="col-12">
+            <h3 className="section-heading text-white text-center">
+              Popular Products{" "}
+            </h3>
           </div>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
-      </section>
+      </Container>
 
       {/* Marquee Section */}
-      <section className="marquee-wrapper">
-        <div className="container-2xxl">
-          <div className="row">
-            <div className="col-12">
-              <div className="marquee-inner-wrapper">
-                <Marquee className="d-flex">
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-01.png"
-                      alt="apple"
-                    />
-                  </div>
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-02.png"
-                      alt="bose"
-                    />
-                  </div>
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-03.png"
-                      alt="canon"
-                    />
-                  </div>
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-04.png"
-                      alt="dell"
-                    />
-                  </div>
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-05.png"
-                      alt="intel"
-                    />
-                  </div>
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-06.png"
-                      alt="lg"
-                    />
-                  </div>
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-07.png"
-                      alt="samsung"
-                    />
-                  </div>
-                  <div className="mx-4 w-50">
-                    <img
-                      className="w-50 h-50"
-                      src="images/brand-08.png"
-                      alt="sandisk"
-                    />
-                  </div>
-                </Marquee>
-              </div>
+      <Container class1="marquee-wrapper">
+        <div className="row">
+          <div className="col-12">
+            <div className="marquee-inner-wrapper">
+              <Marquee className="d-flex">
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-01.png"
+                    alt="apple"
+                  />
+                </div>
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-02.png"
+                    alt="bose"
+                  />
+                </div>
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-03.png"
+                    alt="canon"
+                  />
+                </div>
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-04.png"
+                    alt="dell"
+                  />
+                </div>
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-05.png"
+                    alt="intel"
+                  />
+                </div>
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-06.png"
+                    alt="lg"
+                  />
+                </div>
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-07.png"
+                    alt="samsung"
+                  />
+                </div>
+                <div className="mx-2 w-50">
+                  <img
+                    className="w-50 h-50"
+                    src="images/brand-08.png"
+                    alt="sandisk"
+                  />
+                </div>
+              </Marquee>
             </div>
           </div>
         </div>
-      </section>
+      </Container>
 
       {/* Blog posts */}
-      <section className="blog-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <h3 className="section-heading text-white">Our Latest News </h3>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-3">
-              <BlogCard />
-            </div>
-            <div className="col-3">
-              <BlogCard />
-            </div>
-            <div className="col-3">
-              <BlogCard />
-            </div>
-            <div className="col-3">
-              <BlogCard />
-            </div>
+      <Container class1="blog-wrapper py-5 home-wrapper-2">
+        <div className="row">
+          <div className="col-12">
+            <h3 className="section-heading text-white">Our Latest News </h3>
           </div>
         </div>
-      </section>
+        <div className="row">
+          <div className="col-3">
+            <BlogCard />
+          </div>
+          <div className="col-3">
+            <BlogCard />
+          </div>
+          <div className="col-3">
+            <BlogCard />
+          </div>
+          <div className="col-3">
+            <BlogCard />
+          </div>
+        </div>
+      </Container>
     </>
   );
 };
