@@ -90,7 +90,7 @@ const Cart = () => {
 
               <div className="cart-data-bottom col-12 my-3 pe-5">
                 <div className="d-flex justify-content-between align-items-baseline">
-                  <Link to="/product" className="button mt-3">
+                  <Link to="/" className="button mt-3">
                     Continue Shopping
                   </Link>
                   <div className="d-flex flex-column align-items-end">

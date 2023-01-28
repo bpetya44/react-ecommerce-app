@@ -9,7 +9,7 @@ import ReactImageZoom from "react-image-zoom";
 import Container from "../components/Container";
 
 const SingleProduct = () => {
-  const [orderedProduct, setOrderedProduct] = useState(true);
+  const [orderedProduct] = useState(true);
 
   const props = {
     width: 600,
@@ -175,12 +175,13 @@ const SingleProduct = () => {
               </div>
               <div className="d-flex align-items-center gap-10 my-3">
                 <h4 className="product-heading">Copy Product Link:</h4>
-                <a
-                  href="javascript:void(0)"
+                <button
+                  href={void 0}
                   onClick={() => copyToClipboard("product link")}
                 >
                   <BiCopy className="fs-5" />
-                </a>
+                  Copy
+                </button>
               </div>
             </div>
           </div>
