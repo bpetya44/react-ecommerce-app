@@ -297,72 +297,74 @@ const Home = () => {
       </Container>
 
       {/* Marquee Section */}
-      <Container class1="marquee-wrapper">
-        <div className="row">
-          <div className="col-12">
-            <div className="marquee-inner-wrapper">
-              <Marquee className="d-flex">
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-01.png"
-                    alt="apple"
-                  />
-                </div>
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-02.png"
-                    alt="bose"
-                  />
-                </div>
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-03.png"
-                    alt="canon"
-                  />
-                </div>
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-04.png"
-                    alt="dell"
-                  />
-                </div>
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-05.png"
-                    alt="intel"
-                  />
-                </div>
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-06.png"
-                    alt="lg"
-                  />
-                </div>
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-07.png"
-                    alt="samsung"
-                  />
-                </div>
-                <div className="mx-2 w-50">
-                  <img
-                    className="w-50 h-50"
-                    src="images/brand-08.png"
-                    alt="sandisk"
-                  />
-                </div>
-              </Marquee>
+      <section className="marquee-wrapper">
+        <div className="container-2xxl">
+          <div className="row">
+            <div className="col-12">
+              <div className="marquee-inner-wrapper">
+                <Marquee className="d-flex">
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-01.png"
+                      alt="apple"
+                    />
+                  </div>
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-02.png"
+                      alt="bose"
+                    />
+                  </div>
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-03.png"
+                      alt="canon"
+                    />
+                  </div>
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-04.png"
+                      alt="dell"
+                    />
+                  </div>
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-05.png"
+                      alt="intel"
+                    />
+                  </div>
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-06.png"
+                      alt="lg"
+                    />
+                  </div>
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-07.png"
+                      alt="samsung"
+                    />
+                  </div>
+                  <div className="mx-2 w-50">
+                    <img
+                      className="w-50 h-50"
+                      src="images/brand-08.png"
+                      alt="sandisk"
+                    />
+                  </div>
+                </Marquee>
+              </div>
             </div>
           </div>
         </div>
-      </Container>
+      </section>
 
       {/* Blog posts */}
       <Container class1="blog-wrapper py-5 home-wrapper-2">
