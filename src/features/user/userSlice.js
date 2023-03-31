@@ -15,6 +15,18 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+export const loginUser = createAsyncThunk(
+  "auth/login",
+  async (userData, thunkAPI) => {
+    try {
+      const response = await authService.loginUser(userData);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const initialState = {
   user: "",
   isLoading: false,
@@ -37,10 +49,39 @@ export const authSlice = createSlice({
       state.isError = false;
       state.createdUser = action.payload;
       if (state.isSuccess && state.createdUser) {
-        toast.success("User created successfully");
+        toast.success("User created successfully", {
+          icon: "🚀",
+        });
       }
     });
     builder.addCase(registerUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.message = action.payload;
+      if (state.isError) {
+        toast.error(state.message);
+      }
+    });
+
+    // Login user
+    builder.addCase(loginUser.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.user = action.payload;
+
+      if (state.isSuccess && state.user) {
+        localStorage.setItem("token", state.user.token);
+        toast.success("User is logged in!", {
+          icon: "🚀",
+        });
+      }
+    });
+    builder.addCase(loginUser.rejected, (state, action) => {
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;
