@@ -29,6 +29,19 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+//Get user wishlist
+export const getUserProductWishlist = createAsyncThunk(
+  "auth/wishlist",
+  async (userData, thunkAPI) => {
+    try {
+      const response = await authService.getUserWishlist(userData);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const getCustomerFromLocalStorage = localStorage.getItem("customer")
   ? JSON.parse(localStorage.getItem("customer"))
   : null;
@@ -88,6 +101,26 @@ export const authSlice = createSlice({
       }
     });
     builder.addCase(loginUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.message = action.payload;
+      if (state.isError) {
+        toast.error(state.message);
+      }
+    });
+
+    // Get user wishlist
+    builder.addCase(getUserProductWishlist.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getUserProductWishlist.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.wishlist = action.payload;
+    });
+    builder.addCase(getUserProductWishlist.rejected, (state, action) => {
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;
