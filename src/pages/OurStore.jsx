@@ -257,7 +257,10 @@ const OurStore = () => {
 
             <div className="product-list py-3">
               <div className="d-flex gap-10 flex-wrap">
-                <ProductCard grid={grid} data={productState} />
+                <ProductCard
+                  grid={grid}
+                  data={productState ? productState : []}
+                />
               </div>
             </div>
           </div>
