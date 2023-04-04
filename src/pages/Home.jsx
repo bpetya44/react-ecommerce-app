@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { BlogCard, ProductCard, SpecialProduct } from "../components/index";
 import Container from "../components/Container";
@@ -17,10 +17,12 @@ import addcart from "../images/add-cart.svg";
 import ReactStars from "react-rating-stars-component";
 
 const Home = () => {
-  const blogState = useSelector((state) => state.blog.blog);
+  const blogState = useSelector((state) => state?.blog?.blog);
   console.log(blogState);
-  const productState = useSelector((state) => state.product.product);
+  const productState = useSelector((state) => state?.product?.product);
   console.log(productState);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const addToWish = (id) => {
@@ -225,10 +227,80 @@ const Home = () => {
           <div className="col-12">
             <h3 className="section-heading text-white">Featured Collection </h3>
           </div>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+
+          {productState &&
+            productState.map((product, index) => {
+              if (product.tags === "featured" && index < 4)
+                return (
+                  <div key={index} className={"col-3"}>
+                    <div
+                      // to={`${
+                      //   location.pathname === "/"
+                      //     ? "product/:id"
+                      //     : location.pathname === "/product/:id"
+                      //     ? "product/:id"
+                      //     : ":id"
+                      // }`}
+                      className="product-card position-relative"
+                    >
+                      <div className="wishlist-icon position-absolute">
+                        <button
+                          className="border-0 bg-transparent"
+                          onClick={(e) => addToWish(product._id)}
+                        >
+                          <img src={wishlist} alt="wishlist" />
+                        </button>
+                      </div>
+                      <div className="product-image">
+                        <img
+                          className="img-fluid w-100"
+                          src={product?.images?.map((img) => img.url)}
+                          alt="product"
+                        />
+                      </div>
+                      <div className="product-details p-3">
+                        <h6 className="brand mt-1">{product?.brand}</h6>
+                        <h5 className="product-title fs-5">{product.title}</h5>
+
+                        <ReactStars>
+                          count={5}
+                          size={28}
+                          value={3}
+                          edit={false}
+                          emptyIcon={<i className="far fa-star"></i>}
+                          halfIcon={<i className="fa fa-star-half-alt"></i>}
+                          fullIcon={<i className="fa fa-star"></i>}
+                        </ReactStars>
+
+                        <span className="price">{`$ ${product.price.toFixed(
+                          2
+                        )}`}</span>
+                      </div>
+
+                      {/* Action Bar */}
+                      <div className="action-bar position-absolute">
+                        <div className="d-flex flex-column gap-30">
+                          <button className="border-0 bg-transparent">
+                            <img src={prodcompare} alt="compare" />
+                          </button>
+                          <button className="border-0 bg-transparent">
+                            <img
+                              onClick={() =>
+                                navigate("/product/" + product._id)
+                              }
+                              src={view}
+                              alt="veiw "
+                            />
+                          </button>
+                          <button className="border-0 bg-transparent">
+                            <img src={addcart} alt="add to cart" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+            })}
         </div>
       </Container>
 
@@ -314,12 +386,14 @@ const Home = () => {
                 return (
                   <SpecialProduct
                     key={index}
+                    id={product._id}
                     brand={product.brand}
                     title={product.title}
                     totalrating={Number(product.totalrating)}
                     price={product.price}
                     sold={product.sold}
                     quantity={product.quantity}
+                    images={product.images}
                   />
                 );
               }
@@ -340,7 +414,7 @@ const Home = () => {
               if (product.tags === "popular") {
                 return (
                   <div key={index} className={"col-3"}>
-                    <Link
+                    <div
                       // to={`${
                       //   location.pathname === "/"
                       //     ? "product/:id"
@@ -391,14 +465,20 @@ const Home = () => {
                             <img src={prodcompare} alt="compare" />
                           </button>
                           <button className="border-0 bg-transparent">
-                            <img src={view} alt="veiw " />
+                            <img
+                              src={view}
+                              alt="veiw"
+                              onClick={() =>
+                                navigate("/product/" + product._id)
+                              }
+                            />
                           </button>
                           <button className="border-0 bg-transparent">
                             <img src={addcart} alt="add to cart" />
                           </button>
                         </div>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 );
               }

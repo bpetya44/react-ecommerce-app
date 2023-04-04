@@ -31,7 +31,7 @@ const ProductCard = (props) => {
                 location.pathname === "/store" ? `gr-${grid}` : "col-3"
               }`}
             >
-              <Link
+              <div
                 // to={`${
                 //   location.pathname === "/"
                 //     ? "product/:id"
@@ -86,15 +86,18 @@ const ProductCard = (props) => {
                     <button className="border-0 bg-transparent">
                       <img src={prodcompare} alt="compare" />
                     </button>
-                    <button className="border-0 bg-transparent">
+                    <Link
+                      to={"/product/" + item._id}
+                      className="border-0 bg-transparent"
+                    >
                       <img src={view} alt="veiw " />
-                    </button>
+                    </Link>
                     <button className="border-0 bg-transparent">
                       <img src={addcart} alt="add to cart" />
                     </button>
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
           );
         })}

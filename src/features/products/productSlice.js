@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { productService } from "./productService";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const getAllProducts = createAsyncThunk(
   "product/get",
@@ -19,6 +21,19 @@ export const addToWishlist = createAsyncThunk(
   async (productId, thunkAPI) => {
     try {
       const response = await productService.addToWishlist(productId);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+//get a single product
+export const getAProduct = createAsyncThunk(
+  "product/getAProduct",
+  async (productId, thunkAPI) => {
+    try {
+      const response = await productService.getSingleProduct(productId);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -65,8 +80,33 @@ export const productSlice = createSlice({
       state.isError = false;
       state.addedToWishlist = action.payload;
       state.message = action.payload;
+      if (state.isSuccess && state.contact) {
+        toast.success("Product is added to wishlist", {
+          icon: "🚀",
+        });
+      }
     });
     builder.addCase(addToWishlist.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.message = action.payload;
+      if (state.isError) {
+        toast.error(state.message);
+      }
+    });
+
+    //get a single product
+    builder.addCase(getAProduct.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getAProduct.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.singleProduct = action.payload;
+    });
+    builder.addCase(getAProduct.rejected, (state, action) => {
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;

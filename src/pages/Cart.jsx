@@ -4,8 +4,19 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import watch from "../images/smart-watch.jpg";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getUserCart } from "../features/user/userSlice";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const userCartState = useSelector((state) => state?.auth?.cartProducts);
+  console.log(userCartState);
+
+  useEffect(() => {
+    dispatch(getUserCart());
+  }, [dispatch]);
   return (
     <>
       <Meta title={"Shopping Cart"} />
@@ -21,39 +32,62 @@ const Cart = () => {
                 <h4 className="cart-col-3">Quantity</h4>
                 <h4 className="cart-col-4">Total</h4>
               </div>
-              <div className="cart-data d-flex justify-content-between align-items-center py-3 mb-2">
-                <div className="cart-col-1 d-flex align-items-center gap-15">
-                  <div className="w-25">
-                    <img className="img-fluid" src={watch} alt="product" />
-                  </div>
-                  <div className="w-75">
-                    <p>Kaahfsjj</p>
-                    <p>Size:</p>
-                    <p>Color</p>
-                  </div>
-                </div>
-                <div className="cart-col-2">
-                  <h5 className="price">$100</h5>
-                </div>
-                <div className="cart-col-3 d-flex align-items-center gap-15">
-                  <div>
-                    <input
-                      type="number"
-                      name=""
-                      id=""
-                      min={1}
-                      max={10}
-                      className="form-control"
-                    />
-                  </div>
-                  <div>
-                    <RiDeleteBin5Line className="fs-4 text-danger" />
-                  </div>
-                </div>
-                <div className="cart-col-4">
-                  <h5 className="price">$100</h5>
-                </div>
-              </div>
+              {/* {userCartState &&
+                userCartState?.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="cart-data d-flex justify-content-between align-items-center py-3 mb-2"
+                    >
+                      <div className="cart-col-1 d-flex align-items-center gap-15">
+                        <div className="w-25">
+                          <img
+                            className="img-fluid"
+                            src={watch}
+                            alt="product"
+                          />
+                        </div>
+                        <div className="w-75">
+                          <p>{item?.productId?.title}</p>
+                          <p className="d-flex gap-3">
+                            Color:
+                            <ul className="colors ps-0">
+                              <li
+                                style={{ backgroundColor: item?.color?.title }}
+                              ></li>
+                            </ul>
+                          </p>
+                        </div>
+                      </div>
+                      <div className="cart-col-2">
+                        <h5 className="price">$ {item?.price}</h5>
+                      </div>
+                      <div className="cart-col-3 d-flex align-items-center gap-15">
+                        <div>
+                          <input
+                            type="number"
+                            name=""
+                            id=""
+                            min={1}
+                            max={10}
+                            className="form-control"
+                            value={item?.quantity}
+                          />
+                        </div>
+                        <div>
+                          <RiDeleteBin5Line className="fs-4 text-danger" />
+                        </div>
+                      </div>
+                      <div className="cart-col-4">
+                        <h5 className="price">
+                          $ {item?.price * item?.quantity}
+                        </h5>
+                      </div>
+                    </div>
+                  );
+                })} */}
+
+              {/* This to be removed */}
               <div className="cart-data d-flex justify-content-between align-items-center py-3 mb-2">
                 <div className="cart-col-1 d-flex align-items-center gap-15">
                   <div className="w-25">
