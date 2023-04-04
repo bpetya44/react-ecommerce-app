@@ -1,11 +1,26 @@
-import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { BlogCard, ProductCard, SpecialProduct } from "../components/index";
 import Container from "../components/Container";
 import { services } from "../utils/Data";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllBlogs } from "../features/blogs/blogSlice";
+import moment from "moment";
 
 const Home = () => {
+  const blogState = useSelector((state) => state.blog.blog);
+  console.log(blogState);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getBlogs = () => {
+      dispatch(getAllBlogs());
+    };
+    getBlogs();
+  }, [dispatch]);
+
   return (
     <>
       {/* Hero section */}
@@ -374,18 +389,26 @@ const Home = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-3">
-            <BlogCard />
-          </div>
-          <div className="col-3">
-            <BlogCard />
-          </div>
-          <div className="col-3">
-            <BlogCard />
-          </div>
-          <div className="col-3">
-            <BlogCard />
-          </div>
+          {blogState &&
+            blogState?.map((blog, index) => {
+              if (index < 3) {
+                return (
+                  <div className="col-4" key={index}>
+                    <BlogCard
+                      id={blog?._id}
+                      title={blog?.title}
+                      description={blog?.description}
+                      image={
+                        blog?.images[0]?.url
+                          ? blog?.images[0]?.url
+                          : "images/blog-1.jpg"
+                      }
+                      date={moment(blog?.createdAt).format("MMM Do YYYY")}
+                    />
+                  </div>
+                );
+              }
+            })}
         </div>
       </Container>
     </>

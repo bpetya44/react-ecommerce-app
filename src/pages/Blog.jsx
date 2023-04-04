@@ -1,8 +1,23 @@
-import React from "react";
+import { useEffect } from "react";
 import { BreadCrumb, Meta, BlogCard } from "../components/index";
+import { useDispatch, useSelector } from "react-redux";
 import Container from "../components/Container";
+import { getAllBlogs } from "../features/blogs/blogSlice";
+import moment from "moment";
 
 const Blog = () => {
+  const blogState = useSelector((state) => state.blog.blog);
+  console.log(blogState);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getBlogs = () => {
+      dispatch(getAllBlogs());
+    };
+    getBlogs();
+  }, [dispatch]);
+
   return (
     <>
       <Meta title={"Blog"} />
@@ -26,18 +41,22 @@ const Blog = () => {
 
           <div className="col-9">
             <div className="row">
-              <div className="col-6 mb-3">
-                <BlogCard />
-              </div>
-              <div className="col-6 mb-3">
-                <BlogCard />
-              </div>
-              <div className="col-6 mb-3">
-                <BlogCard />
-              </div>
-              <div className="col-6 mb-3">
-                <BlogCard />
-              </div>
+              {blogState &&
+                blogState?.map((blog, index) => (
+                  <div className="col-6 mb-3" key={index}>
+                    <BlogCard
+                      id={blog?._id}
+                      title={blog?.title}
+                      description={blog?.description}
+                      image={
+                        blog?.images[0]?.url
+                          ? blog?.images[0]?.url
+                          : "images/blog-1.jpg"
+                      }
+                      date={moment(blog?.createdAt).format("MMM Do YYYY")}
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         </div>

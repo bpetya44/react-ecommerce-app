@@ -8,18 +8,17 @@ import { addToWishlist } from "../features/products/productSlice";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
-  const getWishList = () => {
-    dispatch(getUserProductWishlist());
-  };
-
-  useEffect(() => {
-    getWishList();
-  }, []);
 
   const wishlistState = useSelector(
-    (state) => state.auth.userWishlist.wishlist
+    (state) => state.auth.userWishlist?.wishlist
   );
   console.log(wishlistState);
+  useEffect(() => {
+    const getWishList = () => {
+      dispatch(getUserProductWishlist());
+    };
+    getWishList();
+  }, [dispatch]);
 
   const removeWishList = (id) => {
     console.log(id);
