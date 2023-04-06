@@ -6,29 +6,42 @@ import { useState } from "react";
 import { TbHeartPlus } from "react-icons/tb";
 import { DiGitCompare } from "react-icons/di";
 import { BiCopy } from "react-icons/bi";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ReactImageZoom from "react-image-zoom";
 import Container from "../components/Container";
 import { getAProduct } from "../features/products/productSlice";
 import { toast } from "react-toastify";
-import { addProductToCart } from "../features/user/userSlice";
+import { addProductToCart, getUserCart } from "../features/user/userSlice";
 
 const SingleProduct = () => {
   const [color, setColor] = useState(null);
   //console.log(color);
   const [quantity, setQuantity] = useState(1);
   // console.log(quantity);
+  const [alreadyAdded, setAlreadyAdded] = useState(false);
 
   const location = useLocation();
   const { id: productId } = useParams();
   //console.log(productId);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const productState = useSelector((state) => state?.product?.singleProduct);
   //console.log(productState);
+  const cartState = useSelector((state) => state?.auth?.cartProducts);
 
   useEffect(() => {
     dispatch(getAProduct(productId));
-  }, [dispatch, productId]);
+    dispatch(getUserCart());
+  }, []);
+
+  //if product already added to cart
+  useEffect(() => {
+    for (let i = 0; i < cartState.length; i++) {
+      if (cartState[i]?.productId?._id === productId) {
+        setAlreadyAdded(true);
+      }
+    }
+  }, []);
 
   const uploadCart = () => {
     if (!color) {
@@ -43,6 +56,8 @@ const SingleProduct = () => {
           price: productState?.price,
         })
       );
+      setAlreadyAdded(true);
+      navigate("/cart");
     }
   };
 
@@ -154,7 +169,7 @@ const SingleProduct = () => {
                   </p>
                 </div>
 
-                <div className="d-flex flex-column gap-10 mt-2 mb-3">
+                {/* <div className="d-flex flex-column gap-10 mt-2 mb-3">
                   <h4 className="product-heading">Size:</h4>
                   <div className="d-flex flex-wrap gap-15">
                     <span className="badge border border-1 text-dark bg-white">
@@ -170,34 +185,48 @@ const SingleProduct = () => {
                       XL
                     </span>
                   </div>
-                </div>
-                <div className="d-flex flex-column gap-10 mt-2">
-                  <h4 className="product-heading">Color:</h4>
-                  <Colors setColor={setColor} colorData={productState?.color} />
-                </div>
+                </div> */}
+
+                {alreadyAdded === false && (
+                  <>
+                    <div className="d-flex flex-column gap-10 mt-2">
+                      <h4 className="product-heading">Color:</h4>
+                      <Colors
+                        setColor={setColor}
+                        colorData={productState?.color}
+                      />
+                    </div>
+                  </>
+                )}
                 <div className="d-flex align-items-center gap-10 mt-0 mb-3">
-                  <h4 className="product-heading">Quantity:</h4>
-                  <div className="">
-                    <input
-                      type="number"
-                      name=""
-                      min={1}
-                      max={10}
-                      style={{ width: "75px" }}
-                      className="form-control"
-                      onChange={(e) => setQuantity(e.target.value)}
-                      value={quantity}
-                    />
-                  </div>
-                  <div className="d-flex align-itens-center gap-10 mt-0 mb-3">
+                  {alreadyAdded === false && (
+                    <>
+                      <h4 className="product-heading">Quantity:</h4>
+                      <div className="">
+                        <input
+                          type="number"
+                          name=""
+                          min={1}
+                          max={10}
+                          style={{ width: "75px" }}
+                          className="form-control"
+                          onChange={(e) => setQuantity(e.target.value)}
+                          value={quantity}
+                        />
+                      </div>
+                    </>
+                  )}
+                  <div className={"d-flex align-itens-center gap-10 mt-0 mb-3"}>
                     <button
                       className="button login border-0 mt-4"
-                      type="submit"
-                      onClick={() => uploadCart(productState._id)}
+                      type="button"
+                      onClick={() => {
+                        alreadyAdded ? navigate("/cart") : uploadCart();
+                      }}
                     >
-                      Add to Cart
+                      {alreadyAdded === false ? "Add to cart" : "Go to cart"}
                     </button>
-                    <button className="button mt-4 border-0">Buy Now</button>
+                    {/* <button className="button mt-4 border-0">Buy Now</button> */}
                   </div>
                 </div>
                 <div className="d-flex align-items-center gap-30">

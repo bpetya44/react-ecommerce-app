@@ -164,7 +164,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = true;
       state.isError = false;
-      state.cartProduct = action.payload;
+      state.productToCart = action.payload;
       if (state.isSuccess && state.productToCart) {
         toast.success("Product added to cart!", {
           icon: "🚀",
