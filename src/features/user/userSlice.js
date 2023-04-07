@@ -68,6 +68,32 @@ export const getUserCart = createAsyncThunk(
   }
 );
 
+// delete product from cart
+export const deleteCartProduct = createAsyncThunk(
+  "user/cart/product/delete",
+  async (cartItemId, thunkAPI) => {
+    try {
+      const response = await authService.removeProductFromCart(cartItemId);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+// update product quantity in cart
+export const updateCartProduct = createAsyncThunk(
+  "user/cart/product/update",
+  async (cartData, thunkAPI) => {
+    try {
+      const response = await authService.updateProductQuantityInCart(cartData);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const getCustomerFromLocalStorage = localStorage.getItem("customer")
   ? JSON.parse(localStorage.getItem("customer"))
   : null;
@@ -103,7 +129,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;
-      state.message = action.payload;
+      state.message = action.error;
       if (state.isError) {
         toast.error(state.message);
       }
@@ -130,7 +156,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;
-      state.message = action.payload;
+      state.message = action.error;
       if (state.isError) {
         toast.error(state.message);
       }
@@ -150,7 +176,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;
-      state.message = action.payload;
+      state.message = action.error;
       if (state.isError) {
         toast.error(state.message);
       }
@@ -175,7 +201,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;
-      state.message = action.payload;
+      state.message = action.error;
       if (state.isError) {
         toast.error(state.message);
       }
@@ -195,7 +221,57 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;
-      state.message = action.payload;
+      state.message = action.error;
+      if (state.isError) {
+        toast.error(state.message);
+      }
+    });
+
+    // Remove product from cart
+    builder.addCase(deleteCartProduct.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(deleteCartProduct.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.deletedCartProduct = action.payload;
+      if (state.isSuccess && state.deletedCartProduct) {
+        toast.success("Product is removed!", {
+          icon: "🚀",
+        });
+      }
+    });
+    builder.addCase(deleteCartProduct.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.message = action.error;
+      if (state.isError) {
+        toast.error(state.message);
+      }
+    });
+
+    // Update product quantity in cart
+    builder.addCase(updateCartProduct.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateCartProduct.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.updatedCartProduct = action.payload;
+      if (state.isSuccess && state.updatedCartProduct) {
+        toast.success("Product is updated!", {
+          icon: "🚀",
+        });
+      }
+    });
+    builder.addCase(updateCartProduct.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.message = action.error;
       if (state.isError) {
         toast.error(state.message);
       }

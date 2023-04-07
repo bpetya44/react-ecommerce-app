@@ -47,10 +47,37 @@ const getCart = async () => {
   }
 };
 
+//remove product from cart
+const removeProductFromCart = async (cartItemId) => {
+  //console.log(cartItemId);
+  //console.log(config);
+  const response = await axios.delete(
+    `${base_url}user/delete-product-cart/${cartItemId}`,
+    config
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
+//update product quantity in cart
+const updateProductQuantityInCart = async (cartData) => {
+  console.log(cartData);
+  const response = await axios.delete(
+    `${base_url}user/update-product-cart/${cartData.cartItemId}/${cartData.quantity}`,
+    config
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
 export const authService = {
   registerUser,
   loginUser,
   getUserWishlist,
   addToCart,
   getCart,
+  removeProductFromCart,
+  updateProductQuantityInCart,
 };

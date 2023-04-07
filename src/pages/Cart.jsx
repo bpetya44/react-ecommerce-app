@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { BreadCrumb, Meta } from "../components/index";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import watch from "../images/smart-watch.jpg";
@@ -6,17 +6,46 @@ import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getUserCart } from "../features/user/userSlice";
+import {
+  getUserCart,
+  deleteCartProduct,
+  updateCartProduct,
+} from "../features/user/userSlice";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const [productUpdateDetail, setProductUpdateDetail] = useState(null);
+  console.log(productUpdateDetail);
   const userCartState = useSelector((state) => state?.auth?.cartProducts);
-  console.log(userCartState);
+  //console.log(userCartState);
 
   useEffect(() => {
     dispatch(getUserCart());
   }, [dispatch]);
+
+  const deleteACartProduct = (id) => {
+    dispatch(deleteCartProduct(id));
+    setTimeout(() => {
+      dispatch(getUserCart());
+    }, 600);
+  };
+
+  const updateACartProduct = (productUpdateDetail) => {};
+
+  useEffect(() => {
+    if (productUpdateDetail) {
+      dispatch(
+        updateCartProduct({
+          cartItemId: productUpdateDetail?.cartItemId,
+          quantity: productUpdateDetail?.quantity,
+        })
+      );
+      setTimeout(() => {
+        dispatch(getUserCart());
+      }, 300);
+    }
+  }, [productUpdateDetail, dispatch]);
 
   return (
     <>
@@ -72,11 +101,24 @@ const Cart = () => {
                             min={1}
                             max={10}
                             className="form-control"
-                            value={item?.quantity}
+                            value={
+                              productUpdateDetail?.quantity
+                                ? productUpdateDetail?.quantity
+                                : item?.quantity
+                            }
+                            onChange={(e) => {
+                              setProductUpdateDetail({
+                                cartItemId: item?._id,
+                                quantity: e.target.value,
+                              });
+                            }}
                           />
                         </div>
                         <div>
-                          <RiDeleteBin5Line className="fs-4 text-danger" />
+                          <RiDeleteBin5Line
+                            onClick={() => deleteACartProduct(item?._id)}
+                            className="fs-4 text-danger"
+                          />
                         </div>
                       </div>
                       <div className="cart-col-4">
