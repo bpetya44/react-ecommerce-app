@@ -31,8 +31,10 @@ const SingleProduct = () => {
 
   useEffect(() => {
     dispatch(getAProduct(productId));
-    dispatch(getUserCart());
-  }, []);
+    setTimeout(() => {
+      dispatch(getUserCart());
+    }, 300);
+  }, [dispatch, productId]);
 
   //if product already added to cart
   useEffect(() => {

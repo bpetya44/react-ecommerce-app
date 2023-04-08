@@ -17,12 +17,14 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [productUpdateDetail, setProductUpdateDetail] = useState(null);
   console.log(productUpdateDetail);
+  const [totalAmount, setTotalAmount] = useState(0);
+  console.log(totalAmount);
   const userCartState = useSelector((state) => state?.auth?.cartProducts);
   //console.log(userCartState);
 
   useEffect(() => {
     dispatch(getUserCart());
-  }, [dispatch]);
+  }, []);
 
   const deleteACartProduct = (id) => {
     dispatch(deleteCartProduct(id));
@@ -30,8 +32,6 @@ const Cart = () => {
       dispatch(getUserCart());
     }, 600);
   };
-
-  const updateACartProduct = (productUpdateDetail) => {};
 
   useEffect(() => {
     if (productUpdateDetail) {
@@ -46,6 +46,14 @@ const Cart = () => {
       }, 300);
     }
   }, [productUpdateDetail, dispatch]);
+
+  useEffect(() => {
+    let sum = 0;
+    for (let i = 0; i < userCartState?.length; i++) {
+      sum += userCartState[i]?.price * userCartState[i]?.quantity;
+    }
+    setTotalAmount(sum);
+  }, [userCartState]);
 
   return (
     <>
@@ -73,7 +81,11 @@ const Cart = () => {
                         <div className="w-25">
                           <img
                             className="img-fluid"
-                            src={watch}
+                            src={
+                              item?.productId?.images[0]?.url
+                                ? item?.productId?.images[0]?.url
+                                : watch
+                            }
                             alt="product"
                           />
                         </div>
@@ -90,7 +102,7 @@ const Cart = () => {
                         </div>
                       </div>
                       <div className="cart-col-2">
-                        <h5 className="price">$ {item?.price}</h5>
+                        <h5 className="price">$ {item?.price.toFixed(2)}</h5>
                       </div>
                       <div className="cart-col-3 d-flex align-items-center gap-15">
                         <div>
@@ -123,7 +135,7 @@ const Cart = () => {
                       </div>
                       <div className="cart-col-4">
                         <h5 className="price">
-                          $ {item?.price * item?.quantity}
+                          $ {(item?.price * item?.quantity).toFixed(2)}
                         </h5>
                       </div>
                     </div>
@@ -132,12 +144,18 @@ const Cart = () => {
 
               <div className="cart-data-bottom col-12 my-3 pe-5">
                 <div className="d-flex justify-content-between align-items-baseline">
-                  <Link to="/" className="button mt-3">
+                  <Link to="/store" className="button mt-3">
                     Continue Shopping
                   </Link>
                   <div className="d-flex flex-column align-items-end">
-                    <h4 className="subtotal">Subtotal: $100.00</h4>
-                    <p>Taxes and Shipping calculated at checkout</p>
+                    {totalAmount > 0 ? (
+                      <h4 className="subtotal">
+                        Subtotal: $ {totalAmount.toFixed(2)}
+                      </h4>
+                    ) : (
+                      <h4 className="subtotal">Subtotal: $ 0.00</h4>
+                    )}
+                    <p>Taxes and Shipping are calculated at checkout</p>
                     <Link to="/checkout" className="button mt-0">
                       Checkout
                     </Link>

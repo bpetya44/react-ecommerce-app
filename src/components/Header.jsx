@@ -5,8 +5,23 @@ import compare from "../images/compare-blue.png";
 import favourite from "../images/heart-blue.png";
 import customer from "../images/customer-blue.png";
 import cart from "../images/shopping-cart.png";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  const userCartState = useSelector((state) => state?.auth?.cartProducts);
+  console.log(userCartState);
+  useEffect(() => {
+    let sum = 0;
+    for (let i = 0; i < userCartState?.length; i++) {
+      sum += userCartState[i]?.price * userCartState[i]?.quantity;
+    }
+    setTotalAmount(sum);
+  }, [userCartState]);
+
   return (
     <>
       <header className="header-top-strip py-3">
@@ -101,8 +116,12 @@ const Header = () => {
                       style={{ width: 50, height: 50 }}
                     />{" "}
                     <div className="d-flex flex-column">
-                      <span className="badge bg-white text-dark">0</span>
-                      <p className="mb-0">$0.00</p>
+                      <span className="badge bg-white text-dark fs-6">
+                        {userCartState?.length ? userCartState?.length : 0}
+                      </span>
+                      <p className="mb-0 mt-1">
+                        ${totalAmount ? totalAmount.toFixed(2) : "0.00"}
+                      </p>
                     </div>
                   </Link>
                 </div>
