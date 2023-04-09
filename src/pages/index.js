@@ -17,6 +17,9 @@ import Wishlist from "./Wishlist";
 import SingleProduct from "./SingleProduct";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
+import OrderCancel from "./OrderCancel";
+import OrderSuccess from "./OrderSuccess";
+import NotFound from "./NotFound";
 
 export {
   Home,
@@ -38,4 +41,7 @@ export {
   SingleProduct,
   Cart,
   Checkout,
+  OrderCancel,
+  OrderSuccess,
+  NotFound,
 };

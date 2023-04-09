@@ -12,6 +12,7 @@ import {
   updateCartProduct,
 } from "../features/user/userSlice";
 import { useSelector } from "react-redux";
+import PayButton from "../components/PayButton";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -156,9 +157,10 @@ const Cart = () => {
                       <h4 className="subtotal">Subtotal: $ 0.00</h4>
                     )}
                     <p>Taxes and Shipping are calculated at checkout</p>
-                    <Link to="/checkout" className="button mt-0">
+                    {/* <Link to="/checkout" className="button mt-0">
                       Checkout
-                    </Link>
+                    </Link> */}
+                    <PayButton cartItems={userCartState} />
                   </div>
                 </div>
               </div>

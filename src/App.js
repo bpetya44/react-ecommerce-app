@@ -22,6 +22,9 @@ import {
   Wishlist,
   Cart,
   Checkout,
+  OrderSuccess,
+  OrderCancel,
+  NotFound,
 } from "./pages/index";
 
 function App() {
@@ -54,6 +57,9 @@ function App() {
             <Route path="refund-policy" element={<RefundPolicy />} />
             <Route path="cart" element={<Cart />} />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="order/success" element={<OrderSuccess />} />
+            <Route path="order/cancel" element={<OrderCancel />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
