@@ -94,12 +94,38 @@ export const updateCartProduct = createAsyncThunk(
   }
 );
 
-const getCustomerFromLocalStorage = localStorage.getItem("customer")
-  ? JSON.parse(localStorage.getItem("customer"))
+// get my orders
+export const getOrders = createAsyncThunk(
+  "user/orders/get",
+  async (thunkAPI) => {
+    try {
+      const response = await authService.getUserOrders();
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+// update user profile
+export const updateUserProfile = createAsyncThunk(
+  "user/profile/update",
+  async (userData, thunkAPI) => {
+    try {
+      const response = await authService.updateUser(userData);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+const getUserFromLocalStorage = localStorage.getItem("user")
+  ? JSON.parse(localStorage.getItem("user"))
   : null;
 
 const initialState = {
-  user: getCustomerFromLocalStorage,
+  user: getUserFromLocalStorage,
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -147,6 +173,7 @@ export const authSlice = createSlice({
 
       if (state.isSuccess && state.user) {
         localStorage.setItem("token", state.user.token);
+        localStorage.setItem("user", JSON.stringify(state.user));
         toast.success("User is logged in!", {
           icon: "🚀",
         });
@@ -268,6 +295,51 @@ export const authSlice = createSlice({
       }
     });
     builder.addCase(updateCartProduct.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.message = action.error;
+      if (state.isError) {
+        toast.error(state.message);
+      }
+    });
+
+    //get my orders
+    builder.addCase(getOrders.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getOrders.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.getOrderedProducts = action.payload;
+    });
+    builder.addCase(getOrders.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.message = action.error;
+      if (state.isError) {
+        toast.error(state.message);
+      }
+    });
+
+    //update user profile
+    builder.addCase(updateUserProfile.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateUserProfile.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.updatedUser = action.payload;
+      if (state.isSuccess && state.updatedUser) {
+        toast.success("Profile is updated!", {
+          icon: "🚀",
+        });
+      }
+    });
+    builder.addCase(updateUserProfile.rejected, (state, action) => {
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = true;

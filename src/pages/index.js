@@ -20,6 +20,8 @@ import Checkout from "./Checkout";
 import OrderCancel from "./OrderCancel";
 import OrderSuccess from "./OrderSuccess";
 import NotFound from "./NotFound";
+import Orders from "./Orders";
+import Profile from "./Profile";
 
 export {
   Home,
@@ -44,4 +46,6 @@ export {
   OrderCancel,
   OrderSuccess,
   NotFound,
+  Orders,
+  Profile,
 };

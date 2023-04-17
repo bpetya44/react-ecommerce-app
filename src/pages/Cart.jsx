@@ -25,7 +25,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(getUserCart());
-  }, []);
+  }, [dispatch]);
 
   const deleteACartProduct = (id) => {
     dispatch(deleteCartProduct(id));
@@ -71,6 +71,7 @@ const Cart = () => {
                 <h4 className="cart-col-3">Quantity</h4>
                 <h4 className="cart-col-4">Total</h4>
               </div>
+
               {userCartState &&
                 userCartState?.map((item, index) => {
                   return (
@@ -103,7 +104,7 @@ const Cart = () => {
                         </div>
                       </div>
                       <div className="cart-col-2">
-                        <h5 className="price">$ {item?.price.toFixed(2)}</h5>
+                        <h5 className="price">$ {item?.price}</h5>
                       </div>
                       <div className="cart-col-3 d-flex align-items-center gap-15">
                         <div>
@@ -136,7 +137,7 @@ const Cart = () => {
                       </div>
                       <div className="cart-col-4">
                         <h5 className="price">
-                          $ {(item?.price * item?.quantity).toFixed(2)}
+                          $ {item?.price * item?.quantity}
                         </h5>
                       </div>
                     </div>
@@ -150,9 +151,7 @@ const Cart = () => {
                   </Link>
                   <div className="d-flex flex-column align-items-end">
                     {totalAmount > 0 ? (
-                      <h4 className="subtotal">
-                        Subtotal: $ {totalAmount.toFixed(2)}
-                      </h4>
+                      <h4 className="subtotal">Subtotal: $ {totalAmount}</h4>
                     ) : (
                       <h4 className="subtotal">Subtotal: $ 0.00</h4>
                     )}

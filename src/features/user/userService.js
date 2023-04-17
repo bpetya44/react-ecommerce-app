@@ -72,6 +72,24 @@ const updateProductQuantityInCart = async (cartData) => {
   }
 };
 
+const getUserOrders = async () => {
+  const response = await axios.get(`${base_url}user/getmyorders`, config);
+  if (response.data) {
+    return response.data;
+  }
+};
+
+const updateUser = async (userData) => {
+  const response = await axios.put(
+    `${base_url}user/update-user`,
+    userData,
+    config
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
 export const authService = {
   registerUser,
   loginUser,
@@ -80,4 +98,6 @@ export const authService = {
   getCart,
   removeProductFromCart,
   updateProductQuantityInCart,
+  getUserOrders,
+  updateUser,
 };

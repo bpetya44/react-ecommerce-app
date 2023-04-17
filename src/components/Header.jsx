@@ -13,7 +13,9 @@ const Header = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const userCartState = useSelector((state) => state?.auth?.cartProducts);
-  console.log(userCartState);
+  //console.log(userCartState);
+  const userState = useSelector((state) => state?.auth);
+  //console.log(userState);
   useEffect(() => {
     let sum = 0;
     for (let i = 0; i < userCartState?.length; i++) {
@@ -96,13 +98,20 @@ const Header = () => {
                 </div>
                 <div>
                   <Link
-                    to="/login"
+                    to={userState?.user === null ? "/login" : "/my-profile"}
                     className="d-flex align-items-center text-white gap-1"
                   >
                     <img src={customer} alt="Log in" />
-                    <p className="mb-0">
-                      Log in <br /> My Account
-                    </p>
+                    {userState?.user === null ? (
+                      <p className="mb-0">
+                        Log in <br /> My Account
+                      </p>
+                    ) : (
+                      <p className="mb-0">
+                        Hi,
+                        <br /> {userState?.user?.firstName}
+                      </p>
+                    )}
                   </Link>
                 </div>
                 <div>
@@ -179,6 +188,7 @@ const Header = () => {
                   <div className="d-flex align-items-center gap-15">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/store">Our Store</NavLink>
+                    <NavLink to="/my-orders">My Orders</NavLink>
                     <NavLink to="/blogs">Blog</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                   </div>

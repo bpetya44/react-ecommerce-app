@@ -38,7 +38,7 @@ const SingleProduct = () => {
 
   //if product already added to cart
   useEffect(() => {
-    for (let i = 0; i < cartState.length; i++) {
+    for (let i = 0; i < cartState?.length; i++) {
       if (cartState[i]?.productId?._id === productId) {
         setAlreadyAdded(true);
       }
