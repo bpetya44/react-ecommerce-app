@@ -72,6 +72,7 @@ const updateProductQuantityInCart = async (cartData) => {
   }
 };
 
+//get user orders
 const getUserOrders = async () => {
   const response = await axios.get(`${base_url}user/getmyorders`, config);
   if (response.data) {
@@ -79,11 +80,34 @@ const getUserOrders = async () => {
   }
 };
 
+//update user
 const updateUser = async (userData) => {
   const response = await axios.put(
     `${base_url}user/update-user`,
     userData,
     config
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
+//forgot password
+const forgotPassword = async (userData) => {
+  const response = await axios.post(
+    `${base_url}user/forgot-password`,
+    userData
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
+//reset password
+const resetPass = async (userData) => {
+  const response = await axios.put(
+    `${base_url}user/reset-password/${userData?.token}`,
+    { password: userData?.password }
   );
   if (response.data) {
     return response.data;
@@ -100,4 +124,6 @@ export const authService = {
   updateProductQuantityInCart,
   getUserOrders,
   updateUser,
+  forgotPassword,
+  resetPass,
 };

@@ -24,6 +24,11 @@ const Header = () => {
     setTotalAmount(sum);
   }, [userCartState]);
 
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
+
   return (
     <>
       <header className="header-top-strip py-3">
@@ -191,6 +196,13 @@ const Header = () => {
                     <NavLink to="/my-orders">My Orders</NavLink>
                     <NavLink to="/blogs">Blog</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
+                    <button
+                      onClick={handleLogout}
+                      className="border-0 bg-transparent text-white text-uppercase"
+                      type="button"
+                    >
+                      {userState?.user === null ? "" : "Log Out"}
+                    </button>
                   </div>
                 </div>
               </div>

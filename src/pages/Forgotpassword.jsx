@@ -1,10 +1,37 @@
 import React from "react";
 import { BreadCrumb, Meta } from "../components/index";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Container from "../components/Container";
 import CustomInput from "../components/CustomInput";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { forgotMyPassword } from "../features/user/userSlice";
+
+const emailSchema = Yup.object({
+  email: Yup.string()
+    .nullable()
+    .required("Email is required")
+    .email("Email is invalid"),
+});
 
 const Forgotpassword = () => {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validationSchema: emailSchema,
+    onSubmit: (values) => {
+      //alert(JSON.stringify(values, null, 2));
+      dispatch(forgotMyPassword(values));
+      //navigate("/");
+    },
+  });
+
   return (
     <>
       <Meta title={"Forgot password"} />
@@ -18,8 +45,22 @@ const Forgotpassword = () => {
               <p className="text-center mb-4">
                 We will send you an email to reset your password
               </p>
-              <form action="" className="d-flex flex-column gap-3">
-                <CustomInput type="email" name="email" placeholder="Email" />
+              <form
+                action=""
+                className="d-flex flex-column gap-3"
+                onSubmit={formik.handleSubmit}
+              >
+                <CustomInput
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange("email")}
+                  onBlur={formik.handleBlur("email")}
+                />
+                <div className="error">
+                  {formik.touched.email && formik.errors.email}
+                </div>
 
                 <div>
                   <div className="mb-2">
