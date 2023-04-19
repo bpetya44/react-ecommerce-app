@@ -91,6 +91,7 @@ const Header = () => {
                   }}
                   options={productOptions}
                   labelKey={"name"}
+                  minLength={2}
                   paginate={paginate}
                   placeholder="Search a product..."
                 />
