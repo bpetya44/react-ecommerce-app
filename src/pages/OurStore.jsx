@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BreadCrumb, Meta, ProductCard, Colors } from "../components/index";
 import { useDispatch, useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
-import { useState } from "react";
 import Container from "../components/Container";
 import { getAllProducts } from "../features/products/productSlice";
 
@@ -14,13 +13,13 @@ const OurStore = () => {
   console.log(productState);
 
   const dispatch = useDispatch();
-  const getProducts = () => {
-    dispatch(getAllProducts());
-  };
 
   useEffect(() => {
+    const getProducts = () => {
+      dispatch(getAllProducts());
+    };
     getProducts();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

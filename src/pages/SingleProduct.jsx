@@ -27,6 +27,7 @@ const SingleProduct = () => {
   const dispatch = useDispatch();
   const productState = useSelector((state) => state?.product?.singleProduct);
   //console.log(productState);
+  const productsState = useSelector((state) => state?.product?.product);
   const cartState = useSelector((state) => state?.auth?.cartProducts);
 
   useEffect(() => {
@@ -77,6 +78,19 @@ const SingleProduct = () => {
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
   };
+
+  //popular products
+  const [popularProducts, setPopularProducts] = useState([]);
+  useEffect(() => {
+    let popular = [];
+    for (let i = 0; i < productsState?.length; i++) {
+      if (productsState[i]?.tags === "popular") {
+        popular.push(productsState[i]);
+      }
+    }
+    setPopularProducts(popular);
+  }, [productsState]);
+  console.log(popularProducts);
 
   return (
     <>
@@ -392,7 +406,7 @@ const SingleProduct = () => {
           <div className="col-12">
             <h3 className="section-heading text-white">Popular Products </h3>
           </div>
-          <ProductCard />
+          <ProductCard data={popularProducts} />
         </div>
       </Container>
     </>

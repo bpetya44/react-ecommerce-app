@@ -4,7 +4,7 @@ import compare from "../images/compare-blue.png";
 import favourite from "../images/heart-blue.png";
 import customer from "../images/customer-blue.png";
 import cart from "../images/shopping-cart.png";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
@@ -29,6 +29,7 @@ const Header = () => {
     setTotalAmount(sum);
   }, [userCartState]);
 
+  //search
   useEffect(() => {
     let data = [];
     for (let i = 0; i < productState?.length; i++) {
@@ -81,6 +82,7 @@ const Header = () => {
             </div>
             <div className="col-4">
               <div className="input-group">
+                {/* Search */}
                 <Typeahead
                   id="pagination-example"
                   onPaginate={() => console.log("Results paginated")}
