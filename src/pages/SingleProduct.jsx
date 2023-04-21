@@ -12,6 +12,7 @@ import Container from "../components/Container";
 import { getAProduct } from "../features/products/productSlice";
 import { toast } from "react-toastify";
 import { addProductToCart, getUserCart } from "../features/user/userSlice";
+import { addRating } from "../features/products/productSlice";
 
 const SingleProduct = () => {
   const [color, setColor] = useState(null);
@@ -90,7 +91,30 @@ const SingleProduct = () => {
     }
     setPopularProducts(popular);
   }, [productsState]);
-  console.log(popularProducts);
+  //console.log(popularProducts);
+
+  //rating
+  const [star, setStar] = useState(null);
+  console.log(star);
+  const [comment, setComment] = useState(null);
+  const addRatingToProduct = () => {
+    if (star === null) {
+      //toast.error("Please add star rating");
+      return false;
+    }
+    if (comment === null) {
+      toast.error("Please add comment");
+      return false;
+    } else {
+      dispatch(
+        addRating({
+          productId,
+          star,
+          comment,
+        })
+      );
+    }
+  };
 
   return (
     <>
@@ -314,7 +338,7 @@ const SingleProduct = () => {
                       size={28}
                       value={3}
                       edit={false}
-                      activeColor="#ffd700"
+                      activeColor={"#ffd700"}
                     </ReactStars>
                     <p className="py-3 mb-0">Based on 2 reviews</p>
                   </div>
@@ -334,42 +358,38 @@ const SingleProduct = () => {
               {/* Review Form */}
               <div className="review-form py-3">
                 <h5 className="text-muted mb-3">Write a Review</h5>
-                <form action="" className="d-flex flex-column gap-15">
-                  <div>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Your Name"
-                    />
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Your Email"
-                    />
-                    <div className="py-3 px-2">
-                      <p className="mb-2 text-muted">Your Rating</p>
-                      <ReactStars>
-                        count={5}
-                        size={28}
-                        value={3}
-                        edit={true}
-                        activeColor="#ffd700"
-                      </ReactStars>
-                    </div>
 
-                    <textarea
-                      className="w-100 form-control"
-                      name=""
-                      id=""
-                      cols="30"
-                      rows="10"
-                      placeholder="Write your review"
-                    ></textarea>
+                <div>
+                  <div className="py-3 px-2">
+                    <p className="mb-2 text-muted">Your Rating</p>
+                    <ReactStars>
+                      count={5}
+                      size={28}
+                      value={3}
+                      edit={true}
+                      activeColor="#ffd700" onChange = {(e) => setStar(e)}
+                    </ReactStars>
                   </div>
-                  <div className="d-flex justify-content-center">
-                    <button className="button mt-0 border-0">Submit</button>
-                  </div>
-                </form>
+
+                  <textarea
+                    className="w-100 form-control"
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="Write your review"
+                    onChange={(e) => setComment(e.target.value)}
+                  ></textarea>
+                </div>
+                <div className="d-flex justify-content-center">
+                  <button
+                    onClick={addRatingToProduct}
+                    className="button mt-0 border-0"
+                    type="button"
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
 
               {/* Reviews */}
@@ -382,7 +402,7 @@ const SingleProduct = () => {
                       size={28}
                       value={3}
                       edit={true}
-                      activeColor="#ffd700"
+                      activeColor={"#ffd700"}
                     </ReactStars>
                   </div>
 
