@@ -10,7 +10,7 @@ import addcart from "../images/add-cart.svg";
 
 const ProductCard = (props) => {
   const { grid, data } = props;
-  console.log(data);
+  //console.log(data);
   let location = useLocation();
   //console.log(location)
 
@@ -92,9 +92,9 @@ const ProductCard = (props) => {
                     >
                       <img src={view} alt="veiw " />
                     </Link>
-                    <button className="border-0 bg-transparent">
+                    {/* <button className="border-0 bg-transparent">
                       <img src={addcart} alt="add to cart" />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
