@@ -103,8 +103,8 @@ const Header = () => {
               </div>
             </div>
             <div className="col-6">
-              <div className="header-upper-links d-flex align-items-center justify-content-between">
-                <div>
+              <div className="header-upper-links d-flex align-items-center justify-content-around">
+                {/* <div>
                   <Link
                     to="/compare-product"
                     className="d-flex align-items-center text-white gap-10"
@@ -114,7 +114,7 @@ const Header = () => {
                       Compare <br /> Products
                     </p>
                   </Link>
-                </div>
+                </div> */}
                 <div>
                   <Link
                     to="/wishlist"

@@ -280,10 +280,10 @@ const Home = () => {
                       {/* Action Bar */}
                       <div className="action-bar position-absolute">
                         <div className="d-flex flex-column gap-30">
-                          <button className="border-0 bg-transparent">
+                          {/* <button className="border-0 bg-transparent">
                             <img src={prodcompare} alt="compare" />
-                          </button>
-                          <button className="border-0 bg-transparent">
+                          </button> */}
+                          <button className="border-0 bg-transparent top-0">
                             <img
                               onClick={() =>
                                 navigate("/product/" + product._id)
@@ -292,9 +292,9 @@ const Home = () => {
                               alt="veiw "
                             />
                           </button>
-                          <button className="border-0 bg-transparent">
+                          {/* <button className="border-0 bg-transparent">
                             <img src={addcart} alt="add to cart" />
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     </div>
@@ -461,9 +461,9 @@ const Home = () => {
                       {/* Action Bar */}
                       <div className="action-bar position-absolute">
                         <div className="d-flex flex-column gap-30">
-                          <button className="border-0 bg-transparent">
+                          {/* <button className="border-0 bg-transparent">
                             <img src={prodcompare} alt="compare" />
-                          </button>
+                          </button> */}
                           <button className="border-0 bg-transparent">
                             <img
                               src={view}
@@ -473,9 +473,9 @@ const Home = () => {
                               }
                             />
                           </button>
-                          <button className="border-0 bg-transparent">
+                          {/* <button className="border-0 bg-transparent">
                             <img src={addcart} alt="add to cart" />
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     </div>

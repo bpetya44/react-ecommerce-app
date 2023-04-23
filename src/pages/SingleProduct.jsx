@@ -9,7 +9,7 @@ import { BiCopy } from "react-icons/bi";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ReactImageZoom from "react-image-zoom";
 import Container from "../components/Container";
-import { getAProduct } from "../features/products/productSlice";
+import { getAProduct, getAllProducts } from "../features/products/productSlice";
 import { toast } from "react-toastify";
 import { addProductToCart, getUserCart } from "../features/user/userSlice";
 import { addRating } from "../features/products/productSlice";
@@ -26,6 +26,7 @@ const SingleProduct = () => {
   //console.log(productId);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const productState = useSelector((state) => state?.product?.singleProduct);
   //console.log(productState);
   const productsState = useSelector((state) => state?.product?.product);
@@ -33,6 +34,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     dispatch(getAProduct(productId));
+    dispatch(getAllProducts());
     setTimeout(() => {
       dispatch(getUserCart());
     }, 300);
@@ -113,6 +115,9 @@ const SingleProduct = () => {
           comment,
         })
       );
+      setTimeout(() => {
+        dispatch(getAProduct(productId));
+      }, 300);
     }
   };
 
@@ -394,26 +399,24 @@ const SingleProduct = () => {
 
               {/* Reviews */}
               <div className="reviews my-5 pb-5">
-                <div className="review">
-                  <div className="d-flex align-items-center gap-10">
-                    <h6 className="mb-0">Person Name</h6>
-                    <ReactStars>
-                      count={5}
-                      size={28}
-                      value={3}
-                      edit={true}
-                      activeColor={"#ffd700"}
-                    </ReactStars>
-                  </div>
-
-                  <p className="text-muted mt-3">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Accusamus optio doloribus ab quibusdam officiis esse,
-                    asperiores doloremque neque voluptas vero necessitatibus.
-                    Facere aliquid neque totam illum excepturi iusto rerum
-                    reiciendis.
-                  </p>
-                </div>
+                {productState &&
+                  productState?.ratings?.map((item, index) => {
+                    return (
+                      <div className="review" key={index}>
+                        <div className="d-flex align-items-center gap-10">
+                          <h6 className="mb-0">{}</h6>
+                          <ReactStars>
+                            count={5}
+                            size={28}
+                            value={item?.star}
+                            edit={true}
+                            activeColor={"#ffd700"}
+                          </ReactStars>
+                        </div>
+                        <p className="text-muted mt-3">{item?.comment}</p>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>
