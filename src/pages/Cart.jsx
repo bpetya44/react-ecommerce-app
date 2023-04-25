@@ -114,15 +114,11 @@ const Cart = () => {
                           <input
                             type="number"
                             name=""
-                            id=""
                             min={1}
                             max={10}
                             className="form-control"
-                            value={
-                              productUpdateDetail?.quantity
-                                ? productUpdateDetail?.quantity
-                                : item?.quantity
-                            }
+                            id={item?._id}
+                            value={item?.quantity}
                             onChange={(e) => {
                               setProductUpdateDetail({
                                 cartItemId: item?._id,

@@ -20,6 +20,22 @@ const profileSchema = Yup.object({
 });
 
 const Profile = () => {
+  const getTokenFromLocalStorage = localStorage.getItem("token")
+    ? localStorage.getItem("token")
+    : null;
+  //console.log(getTokenFromLocalStorage);
+
+  //axios config
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage : ""
+      }`,
+      Accept: "application/json",
+    },
+  };
+
   const dispatch = useDispatch();
   const userState = useSelector((state) => state?.auth?.user);
   const [edit, setEdit] = useState(true);

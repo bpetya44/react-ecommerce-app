@@ -58,9 +58,9 @@ export const addProductToCart = createAsyncThunk(
 // Get user cart
 export const getUserCart = createAsyncThunk(
   "user/cart/get",
-  async (thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const response = await authService.getCart();
+      const response = await authService.getCart(data);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -183,7 +183,9 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(state.message);
+        toast.error(action.payload.response.data.message, {
+          icon: "⛔",
+        });
       }
     });
 
@@ -211,7 +213,9 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(state.message);
+        toast.error(action.payload.response.data.message, {
+          icon: "⛔",
+        });
       }
     });
 
@@ -360,6 +364,18 @@ export const authSlice = createSlice({
       state.isError = false;
       state.updatedUser = action.payload;
       if (state.isSuccess && state.updatedUser) {
+        let currentUserData = JSON.parse(localStorage.getItem("user"));
+        //console.log(currentUserData);
+        let newUserData = {
+          ...currentUserData,
+          firstName: state.updatedUser.firstName,
+          lastName: state.updatedUser.lastName,
+          email: state.updatedUser.email,
+          mobile: state.updatedUser.mobile,
+        };
+        localStorage.setItem("user", JSON.stringify(newUserData));
+        state.user = newUserData;
+
         toast.success("Profile is updated!", {
           icon: "🚀",
         });
@@ -371,7 +387,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(state.message);
+        toast.error(action.payload.response.data.message);
       }
     });
 

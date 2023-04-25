@@ -1,12 +1,13 @@
 import React from "react";
 import { BreadCrumb, Meta } from "../components/index";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Container from "../components/Container";
 import CustomInput from "../components/CustomInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { registerUser } from "../features/user/userSlice";
+import { useEffect } from "react";
 
 const signUpSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
@@ -21,6 +22,8 @@ const signUpSchema = Yup.object({
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const authState = useSelector((state) => state?.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -36,6 +39,11 @@ const Signup = () => {
       dispatch(registerUser(values));
     },
   });
+  useEffect(() => {
+    if (authState.createdUser) {
+      navigate("/login");
+    }
+  }, [authState.createdUser, authState.isError, navigate]);
 
   return (
     <>
@@ -89,7 +97,7 @@ const Signup = () => {
                 </div>
 
                 <CustomInput
-                  type="tel"
+                  type="text"
                   name="mobile"
                   placeholder="Mobile"
                   value={formik.values.mobile}
@@ -113,11 +121,11 @@ const Signup = () => {
                 </div>
 
                 <div className="mb-2">
-                  <Link to="/forgot-password" className="forgot mt-3 ms-2">
-                    Forgot your password?
-                  </Link>
                   <div className="d-flex justify-content-center align-items-center gap-15">
-                    <button className="button login border-0 mt-4">
+                    <button
+                      className="button login border-0 mt-4"
+                      type="submit"
+                    >
                       Sign Up
                     </button>
                   </div>

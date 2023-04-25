@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
+import { getAllProducts } from "../features/products/productSlice";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
   const [totalAmount, setTotalAmount] = useState(0);
@@ -20,6 +22,32 @@ const Header = () => {
   const productState = useSelector((state) => state?.product?.product);
   //console.log(productState);
   const [productOptions, setProductOptions] = useState([]);
+
+  //categories
+  const dispatch = useDispatch();
+  const [category, setCategory] = useState(null);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    let categoryArr = [];
+    for (let i = 0; i < productState?.length; i++) {
+      categoryArr.push(productState[i]?.category);
+    }
+    setCategories(categoryArr);
+  }, [productState]);
+
+  const handleCategory = (category) => {
+    setCategory(category);
+    console.log(category);
+    if (category === "All") {
+      //go to store page and fetch all products
+      dispatch(getAllProducts());
+      navigate("/store");
+    } else {
+      dispatch(getAllProducts(category));
+      navigate("/store");
+    }
+  };
 
   useEffect(() => {
     let sum = 0;
@@ -177,7 +205,7 @@ const Header = () => {
             <div className="col-12">
               <div className="menu-bottom d-flex align-items-center gap-5">
                 <div>
-                  {/* Dropdown */}
+                  {/* Dropdown Categories */}
                   <div className="dropdown">
                     <button
                       className="btn btn-warning dropdown-toggle bg-transparent text-white"
@@ -196,21 +224,18 @@ const Header = () => {
                       </span>
                     </button>
                     <ul className="dropdown-menu">
-                      <li>
-                        <Link className="dropdown-item text-white" to="#">
-                          Category1
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item text-white" to="#">
-                          Category2
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item text-white" to="#">
-                          Category3
-                        </Link>
-                      </li>
+                      {categories &&
+                        [...new Set(categories)].map((category, index) => {
+                          return (
+                            <li
+                              key={index}
+                              className="dropdown-item text-white"
+                              onClick={() => handleCategory(category)}
+                            >
+                              {category}
+                            </li>
+                          );
+                        })}
                     </ul>
                   </div>
                   {/* End Dropdown */}

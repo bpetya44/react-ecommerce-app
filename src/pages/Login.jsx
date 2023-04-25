@@ -22,6 +22,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const authState = useSelector((state) => state?.auth);
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -34,10 +36,14 @@ const Login = () => {
     onSubmit: (values) => {
       //alert(JSON.stringify(values, null, 2));
       dispatch(loginUser(values));
-
-      navigate("/");
     },
   });
+  useEffect(() => {
+    if (authState?.user !== null && authState?.user?.token) {
+      navigate("/");
+    }
+  }, [navigate, authState?.user?.token]);
+
   return (
     <>
       <Meta title={"Login"} />
