@@ -2,10 +2,14 @@ import axios from "axios";
 import { base_url, config } from "../../utils/axiosConfig";
 
 const registerUser = async (userData) => {
-  const response = await axios.post(`${base_url}user/register`, userData);
-  if (response.data) {
-    localStorage.setItem("customer", JSON.stringify(response.data));
-    return response.data;
+  try {
+    const response = await axios.post(`${base_url}user/register`, userData);
+    if (response.data) {
+      localStorage.setItem("customer", JSON.stringify(response.data));
+      return response.data;
+    }
+  } catch (error) {
+    return error.response.data;
   }
 };
 
@@ -17,9 +21,13 @@ const loginUser = async (userData) => {
 };
 
 const getUserWishlist = async () => {
-  const response = await axios.get(`${base_url}user/wishlist/`, config);
-  if (response.data) {
-    return response.data;
+  try {
+    const response = await axios.get(`${base_url}user/wishlist/`, config);
+    if (response.data) {
+      return response.data;
+    }
+  } catch (error) {
+    return error.response.data;
   }
 };
 

@@ -118,7 +118,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = true;
       state.isError = false;
-      state.wishlist = action.payload;
+      state.userWishlist = action.payload;
     });
     builder.addCase(getUserProductWishlist.rejected, (state, action) => {
       state.isLoading = false;
