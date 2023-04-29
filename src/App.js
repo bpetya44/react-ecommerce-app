@@ -81,14 +81,7 @@ function App() {
               element={<TermsAndConditions />}
             />
             <Route path="refund-policy" element={<RefundPolicy />} />
-            <Route
-              path="cart"
-              element={
-                <PrivateRoutes>
-                  <Cart />
-                </PrivateRoutes>
-              }
-            />
+            <Route path="cart" element={<Cart />} />
             <Route
               path="my-orders"
               element={
