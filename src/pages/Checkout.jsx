@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { base_url } from "../utils/axiosConfig";
 
 const checkoutSchema = Yup.object({
   country: Yup.string().required("Country is required"),
@@ -20,7 +21,7 @@ const checkoutSchema = Yup.object({
 
 const Checkout = () => {
   const dispatch = useDispatch();
-  const cartState = useSelector((state) => state.auth.cartProducts);
+  const cartState = useSelector((state) => state?.auth?.cartProducts);
   console.log(cartState);
 
   const [totalAmount, setTotalAmount] = useState(null);
@@ -56,7 +57,7 @@ const Checkout = () => {
   //implement payment through stripe
   const handlePayment = async () => {
     const response = await axios.post(
-      "http://localhost:4000/api/payment/create-checkout-session",
+      `${base_url}payment/create-checkout-session`,
       shippingInfo,
 
       {
@@ -98,9 +99,7 @@ const Checkout = () => {
               {/* Checkout form */}
               <div className="checkout-inner-wrapper bg-white border rounded py-3 px-3">
                 <h4 className="title">Contact Information</h4>
-                <p className="user-details">
-                  Petya Angelova (bedfordpetya@gmail.com)
-                </p>
+                <p className="user-details">Petya Angelova (email@email.com)</p>
                 <h4 className="mt-5 mb-3">Shipping address</h4>
                 <form
                   action=""

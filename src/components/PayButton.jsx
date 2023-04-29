@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { base_url } from "../utils/axiosConfig";
 
 const PayButton = ({ cartItems }) => {
   console.log(cartItems);
   const handleCheckout = () => {
     axios
-      .post("http://localhost:4000/api/payment/checkout", {
+      .post(`${base_url}payment/checkout`, {
         cartItems,
         userId: cartItems.userId,
       })
