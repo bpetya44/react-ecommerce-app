@@ -57,7 +57,12 @@ const Home = () => {
                 <h4>Best Choice for Pros</h4>
                 <p>From $999 or $41.62/mo. for 24 mo.</p>
                 <h5>MacBook Pro 14 </h5>
-                <Link className="button">Buy Now</Link>
+                <Link
+                  className="button"
+                  to={`/product/6460052cda803e0729e539d8`}
+                >
+                  Buy Now
+                </Link>
               </div>
             </div>
           </div>
@@ -65,7 +70,10 @@ const Home = () => {
           <div className="col-6">
             <div className="d-flex flex-wrap justify-content-around align-items-center gap-10 pt-5">
               {/* small banner1 */}
-              <div className="small-banner position-relative">
+              <Link
+                className="small-banner position-relative"
+                to={`/product/646097a1da803e0729e53d56`}
+              >
                 <img
                   src="images/headphones.jpg"
                   alt="small banner"
@@ -76,10 +84,13 @@ const Home = () => {
                   <p>From $29.99</p>
                   <h5>Headphones</h5>
                 </div>
-              </div>
+              </Link>
 
               {/* small banner2 */}
-              <div className="small-banner position-relative">
+              <Link
+                className="small-banner position-relative"
+                to={`/product/6460992ada803e0729e53d8f`}
+              >
                 <img
                   src="images/ipad.jpg"
                   alt="small banner"
@@ -90,10 +101,13 @@ const Home = () => {
                   <p>From $299.99</p>
                   <h5>iPad Air</h5>
                 </div>
-              </div>
+              </Link>
 
               {/* small banner3 */}
-              <div className="small-banner position-relative">
+              <Link
+                className="small-banner position-relative"
+                to={`/product/645fb617da803e0729e53729`}
+              >
                 <img
                   src="images/smart-watch.jpg"
                   alt="small banner"
@@ -104,20 +118,22 @@ const Home = () => {
                   <p>From $69.99</p>
                   <h5>Smart Watch</h5>
                 </div>
-              </div>
+              </Link>
 
               {/* small banner4 */}
               <div className="small-banner position-relative">
-                <img
-                  src="images/laptop.jpg"
-                  alt="small banner"
-                  className="img-fluid rounded-3"
-                />
-                <div className="small-banner-content position-absolute p-2 rounded">
-                  <h4>New</h4>
-                  <p>From $699.99</p>
-                  <h5>Laptops</h5>
-                </div>
+                <Link to={`/product/646005c3da803e0729e539ed`}>
+                  <img
+                    src="images/laptop.jpg"
+                    alt="small banner"
+                    className="img-fluid rounded-3"
+                  />
+                  <div className="small-banner-content position-absolute p-2 rounded">
+                    <h4>New</h4>
+                    <p>From $699.99</p>
+                    <h5>Laptops</h5>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -230,10 +246,11 @@ const Home = () => {
 
           {productState &&
             productState.map((product, index) => {
-              if (product.tags === "featured" && index < 4)
+              if (product.tags === "featured")
                 return (
                   <div key={index} className={"col-3"}>
                     <div
+                      onClick={() => navigate("/product/" + product._id)}
                       // to={`${
                       //   location.pathname === "/"
                       //     ? "product/:id"
@@ -241,7 +258,8 @@ const Home = () => {
                       //     ? "product/:id"
                       //     : ":id"
                       // }`}
-                      className="product-card position-relative"
+                      className="product-card position-relative h-100"
+                      role="button"
                     >
                       <div className="wishlist-icon position-absolute">
                         <button
@@ -415,6 +433,7 @@ const Home = () => {
                 return (
                   <div key={index} className={"col-3"}>
                     <div
+                      onClick={() => navigate("/product/" + product._id)}
                       // to={`${
                       //   location.pathname === "/"
                       //     ? "product/:id"
@@ -422,7 +441,8 @@ const Home = () => {
                       //     ? "product/:id"
                       //     : ":id"
                       // }`}
-                      className="product-card position-relative"
+                      className="product-card position-relative h-100"
+                      role="button"
                     >
                       <div className="wishlist-icon position-absolute">
                         <button

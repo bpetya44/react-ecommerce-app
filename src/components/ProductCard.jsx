@@ -7,12 +7,14 @@ import watch from "../images/smart-watch.jpg";
 import prodcompare from "../images/prodcompare.svg";
 import view from "../images/view.svg";
 import addcart from "../images/add-cart.svg";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = (props) => {
   const { grid, data } = props;
   //console.log(data);
   let location = useLocation();
   //console.log(location)
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const addToWish = (id) => {
@@ -32,6 +34,8 @@ const ProductCard = (props) => {
               }`}
             >
               <div
+                onClick={() => navigate("/product/" + item._id)}
+                style={{ height: "100%" }}
                 // to={`${
                 //   location.pathname === "/"
                 //     ? "product/:id"
@@ -40,6 +44,7 @@ const ProductCard = (props) => {
                 //     : ":id"
                 // }`}
                 className="product-card position-relative"
+                role="button"
               >
                 <div className="wishlist-icon position-absolute">
                   <button
@@ -51,7 +56,7 @@ const ProductCard = (props) => {
                 </div>
                 <div className="product-image">
                   <img
-                    className="img-fluid w-100"
+                    className="img-fluid w-100 h-100"
                     src={item?.images?.map((img) => img.url)}
                     alt="product"
                   />

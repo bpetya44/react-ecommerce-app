@@ -30,7 +30,7 @@ const SingleProduct = () => {
   const productState = useSelector((state) => state?.product?.singleProduct);
   //console.log(productState);
   const productsState = useSelector((state) => state?.product?.product);
-  const cartState = useSelector((state) => state?.auth?.cartProducts);
+  const userCartState = useSelector((state) => state?.auth?.cartProducts);
 
   useEffect(() => {
     dispatch(getAProduct(productId));
@@ -42,8 +42,8 @@ const SingleProduct = () => {
 
   //if product already added to cart
   useEffect(() => {
-    for (let i = 0; i < cartState?.length; i++) {
-      if (cartState[i]?.productId?._id === productId) {
+    for (let i = 0; i < userCartState?.length; i++) {
+      if (userCartState[i]?.productId?._id === productId) {
         setAlreadyAdded(true);
       }
     }
@@ -62,12 +62,14 @@ const SingleProduct = () => {
           price: productState?.price,
         })
       );
-      setAlreadyAdded(true);
-      navigate("/cart");
+      setOrderedProduct(true);
+      setTimeout(() => {
+        navigate("/cart");
+      }, 500);
     }
   };
 
-  const [orderedProduct, setOrderedProduct] = useState(true);
+  const [orderedProduct, setOrderedProduct] = useState(false);
 
   const props = {
     width: 600,
@@ -149,28 +151,6 @@ const SingleProduct = () => {
                   </div>
                 );
               })}
-
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1587925358603-c2eea5305bbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3Jpc3R3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
             </div>
           </div>
           <div className="col-6">
