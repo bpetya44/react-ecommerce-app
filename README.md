@@ -42,7 +42,7 @@
 
     </details>
       </td>
-      <td valign="top" style="width:70%"><img src="docs/images/" alt="Shop Corner gif"/></td>
+      <td valign="top" style="width:70%"><img src="docs/images/shop-corner.gif" alt="Shop Corner gif"/></td>
     </tr>
   </table>
   </div>
