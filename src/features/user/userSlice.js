@@ -235,7 +235,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -260,7 +260,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -280,7 +280,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -305,7 +305,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -330,7 +330,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -350,7 +350,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -387,7 +387,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -412,7 +412,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
 
@@ -437,7 +437,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.error;
       if (state.isError) {
-        toast.error(action.payload.response.data.message);
+        toast.error(state.message);
       }
     });
   },
