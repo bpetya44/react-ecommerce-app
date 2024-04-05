@@ -6,19 +6,37 @@ import Container from "../components/Container";
 import { services } from "../utils/Data";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBlogs } from "../features/blogs/blogSlice";
+import { getAllProducts } from "../features/products/productSlice";
 import moment from "moment";
+import { addToWishlist } from "../features/products/productSlice";
+import wishlist from "../images/wishlist.svg";
+import watch from "../images/smart-watch.jpg";
+import prodcompare from "../images/prodcompare.svg";
+import view from "../images/view.svg";
+import addcart from "../images/add-cart.svg";
+import ReactStars from "react-rating-stars-component";
 
 const Home = () => {
   const blogState = useSelector((state) => state.blog.blog);
   console.log(blogState);
+  const productState = useSelector((state) => state.product.product);
+  console.log(productState);
 
   const dispatch = useDispatch();
+  const addToWish = (id) => {
+    // console.log(id);
+    dispatch(addToWishlist(id));
+  };
 
   useEffect(() => {
     const getBlogs = () => {
       dispatch(getAllBlogs());
     };
     getBlogs();
+    const getProducts = () => {
+      dispatch(getAllProducts());
+    };
+    getProducts();
   }, [dispatch]);
 
   return (
@@ -290,9 +308,22 @@ const Home = () => {
           </div>
         </div>
         <div className="row">
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
+          {productState &&
+            productState?.map((product, index) => {
+              if (product.tags === "special") {
+                return (
+                  <SpecialProduct
+                    key={index}
+                    brand={product.brand}
+                    title={product.title}
+                    totalrating={Number(product.totalrating)}
+                    price={product.price}
+                    sold={product.sold}
+                    quantity={product.quantity}
+                  />
+                );
+              }
+            })}
         </div>
       </Container>
 
@@ -304,10 +335,74 @@ const Home = () => {
               Popular Products{" "}
             </h3>
           </div>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {productState &&
+            productState?.map((product, index) => {
+              if (product.tags === "popular") {
+                return (
+                  <div key={index} className={"col-3"}>
+                    <Link
+                      // to={`${
+                      //   location.pathname === "/"
+                      //     ? "product/:id"
+                      //     : location.pathname === "/product/:id"
+                      //     ? "product/:id"
+                      //     : ":id"
+                      // }`}
+                      className="product-card position-relative"
+                    >
+                      <div className="wishlist-icon position-absolute">
+                        <button
+                          className="border-0 bg-transparent"
+                          onClick={(e) => addToWish(product._id)}
+                        >
+                          <img src={wishlist} alt="wishlist" />
+                        </button>
+                      </div>
+                      <div className="product-image">
+                        <img
+                          className="img-fluid w-100"
+                          src={product?.images?.map((img) => img.url)}
+                          alt="product"
+                        />
+                      </div>
+                      <div className="product-details p-3">
+                        <h6 className="brand mt-1">{product?.brand}</h6>
+                        <h5 className="product-title fs-5">{product.title}</h5>
+
+                        <ReactStars>
+                          count={5}
+                          size={28}
+                          value={3}
+                          edit={false}
+                          emptyIcon={<i className="far fa-star"></i>}
+                          halfIcon={<i className="fa fa-star-half-alt"></i>}
+                          fullIcon={<i className="fa fa-star"></i>}
+                        </ReactStars>
+
+                        <span className="price">{`$ ${product.price.toFixed(
+                          2
+                        )}`}</span>
+                      </div>
+
+                      {/* Action Bar */}
+                      <div className="action-bar position-absolute">
+                        <div className="d-flex flex-column gap-30">
+                          <button className="border-0 bg-transparent">
+                            <img src={prodcompare} alt="compare" />
+                          </button>
+                          <button className="border-0 bg-transparent">
+                            <img src={view} alt="veiw " />
+                          </button>
+                          <button className="border-0 bg-transparent">
+                            <img src={addcart} alt="add to cart" />
+                          </button>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                );
+              }
+            })}
         </div>
       </Container>
 

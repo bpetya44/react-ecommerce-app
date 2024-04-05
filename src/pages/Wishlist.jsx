@@ -10,7 +10,7 @@ const Wishlist = () => {
   const dispatch = useDispatch();
 
   const wishlistState = useSelector(
-    (state) => state.auth.userWishlist?.wishlist
+    (state) => state.auth?.userWishlist?.wishlist
   );
   console.log(wishlistState);
   useEffect(() => {
@@ -45,36 +45,37 @@ const Wishlist = () => {
               </div>
             </div>
           )}
-          {wishlistState?.map((item, index) => {
-            return (
-              <div className="col-3" key={index}>
-                <div className="wishlist-card position-relative bg-white">
-                  <img
-                    onClick={() => removeWishList(item._id)}
-                    src="images/cross.svg"
-                    alt="close"
-                    className="position-absolute cross"
-                  />
-                  <div className="wishlist-card-image">
+          {wishlistState &&
+            wishlistState?.map((item, index) => {
+              return (
+                <div className="col-3" key={index}>
+                  <div className="wishlist-card position-relative bg-white">
                     <img
-                      className="img-fluid w-100 d-block mx-auto"
-                      src={
-                        // item?.images[0].url
-                        //   ? item?.images[0].url
-                        //   : "images/watch.png"
-                        "images/watch.png"
-                      }
-                      alt="Apple Watch"
+                      onClick={() => removeWishList(item._id)}
+                      src="images/cross.svg"
+                      alt="close"
+                      className="position-absolute cross"
                     />
-                  </div>
-                  <div className="wishlist-card-description px-3 py-3">
-                    <h5 className="title">{item.title}</h5>
-                    <h6 className="price">${item.price}</h6>
+                    <div className="wishlist-card-image">
+                      <img
+                        className="img-fluid w-100 d-block mx-auto"
+                        src={
+                          // item?.images[0].url
+                          //   ? item?.images[0].url
+                          //   : "images/watch.png"
+                          "images/watch.png"
+                        }
+                        alt="Apple Watch"
+                      />
+                    </div>
+                    <div className="wishlist-card-description px-3 py-3">
+                      <h5 className="title">{item.title}</h5>
+                      <h6 className="price">${item.price}</h6>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </Container>
     </>

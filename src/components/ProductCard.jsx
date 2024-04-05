@@ -1,5 +1,4 @@
 import ReactStars from "react-rating-stars-component";
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist } from "../features/products/productSlice";
@@ -11,7 +10,7 @@ import addcart from "../images/add-cart.svg";
 
 const ProductCard = (props) => {
   const { grid, data } = props;
-  //console.log(data);
+  console.log(data);
   let location = useLocation();
   //console.log(location)
 
@@ -24,10 +23,10 @@ const ProductCard = (props) => {
   return (
     <>
       {data &&
-        data.map((item) => {
+        data.map((item, index) => {
           return (
             <div
-              key={item._id}
+              key={index}
               className={`${
                 location.pathname === "/store" ? `gr-${grid}` : "col-3"
               }`}
@@ -53,7 +52,7 @@ const ProductCard = (props) => {
                 <div className="product-image">
                   <img
                     className="img-fluid w-100"
-                    src={item.images.map((img) => img.url)}
+                    src={item?.images?.map((img) => img.url)}
                     alt="product"
                   />
                 </div>

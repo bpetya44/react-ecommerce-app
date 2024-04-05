@@ -3,22 +3,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import watch from "../images/watch.jpg";
 
-const SpecialProduct = () => {
+const SpecialProduct = (props) => {
+  const { title, brand, totalrating, price, sold, quantity } = props;
   return (
-    <div className="col-4">
+    <div className="col-4 mb-4">
       <div className="special-product-card">
         <div className="d-flex justify-content-between">
           <div>
             <img className="img-fluid" src={watch} alt="Apple watch" />
           </div>
           <div className="special-product-content">
-            <h5 className="brand">Apple</h5>
-            <h6 className="title">Apple Watch SE 2 (2022), GPS,</h6>
+            <h5 className="brand">{brand}</h5>
+            <h6 className="title">{title}</h6>
 
             <ReactStars>
               count={5}
               size={28}
-              value={3}
+              value={totalrating}
               edit={false}
               emptyIcon={<i className="far fa-star"></i>}
               halfIcon={<i className="fa fa-star-half-alt"></i>}
@@ -26,8 +27,8 @@ const SpecialProduct = () => {
             </ReactStars>
 
             <p className="price">
-              <span className="red-p">$299.99</span> &nbsp;
-              <strike>$399.99</strike>
+              <span className="red-p">${price.toFixed(2)}</span> &nbsp;
+              {/* <strike>${price.toFixed(2)}</strike> */}
             </p>
             <div className="discoutn-till d-flex align-items-center gap-10">
               <p className="mb-0 ">
@@ -41,21 +42,21 @@ const SpecialProduct = () => {
             </div>
 
             <div className="product-count mt-3">
-              <p>Products: 5</p>
+              <p>Products: {quantity}</p>
 
               <div className="progress">
                 <div
                   className="progress-bar"
                   role="progressbar"
-                  style={{ width: "25%" }}
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
+                  style={{ width: (quantity / (sold + quantity)) * 100 + "%" }}
+                  aria-valuenow={(quantity / (sold + quantity)) * 100}
+                  aria-valuemin={quantity}
+                  aria-valuemax={sold + quantity}
                 ></div>
               </div>
             </div>
 
-            <Link className="button">Add To Cart</Link>
+            <Link className="button fs-6">Add To Cart</Link>
           </div>
         </div>
       </div>
