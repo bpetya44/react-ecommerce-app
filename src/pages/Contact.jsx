@@ -1,13 +1,56 @@
 import React from "react";
 import { BreadCrumb, Meta } from "../components/index";
 import Container from "../components/Container";
-
 import { FaHome } from "react-icons/fa";
 import { BiPhoneCall } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillInfoCircleFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { createQuery } from "../features/contact/contactSlice";
+import { useEffect } from "react";
+
+const contactSchema = Yup.object({
+  name: Yup.string().required("Your Name is required"),
+  email: Yup.string()
+    .nullable()
+    .required("Email is required")
+    .email("Email is invalid"),
+
+  mobile: Yup.string().default("").required("Mobile is required"),
+  comment: Yup.string().default("").required("Comment is required"),
+});
 
 const Contact = () => {
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      mobile: "",
+      comment: "",
+    },
+    validationSchema: contactSchema,
+    onSubmit: (values, { resetForm }) => {
+      // alert(JSON.stringify(values, null, 2));
+      dispatch(
+        createQuery({
+          name: values.name,
+          email: values.email,
+          mobile: values.mobile,
+          comment: values.comment,
+        })
+      );
+      setTimeout(() => {
+        resetForm();
+      }, 1000);
+    },
+    //resetForm is a function that will reset the form values to the initialValues
+    //after the form is submitted successfully.
+    // resetForm: true,
+  });
   return (
     <>
       <Meta title={"Contact"} />
@@ -32,34 +75,70 @@ const Contact = () => {
               <div>
                 <h3 className="contact-title mb-3">Contact </h3>
 
-                <form action="" className="d-flex flex-column">
+                <form
+                  action=""
+                  className="d-flex flex-column"
+                  onSubmit={formik.handleSubmit}
+                >
                   <div>
                     <input
                       type="text"
+                      name="namr"
                       className="form-control"
                       placeholder="Name"
+                      value={formik.values.name}
+                      onChange={formik.handleChange("name")}
+                      onBlur={formik.handleBlur("name")}
                     />
+                    <div className="error">
+                      {formik.touched.name && formik.errors.name}
+                    </div>
+
                     <input
                       type="email"
                       className="form-control"
                       placeholder="Email"
+                      name="email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange("email")}
+                      onBlur={formik.handleBlur("email")}
                     />
+                    <div className="error">
+                      {formik.touched.email && formik.errors.email}
+                    </div>
+
                     <input
                       type="tel"
                       className="form-control"
                       placeholder="Phone"
+                      name="mobile"
+                      value={formik.values.mobile}
+                      onChange={formik.handleChange("mobile")}
+                      onBlur={formik.handleBlur("mobile")}
                     />
+                    <div className="error">
+                      {formik.touched.mobile && formik.errors.mobile}
+                    </div>
+
                     <textarea
                       className="w-100 form-control"
-                      name=""
+                      name="comment"
                       id=""
                       cols="30"
                       rows="10"
                       placeholder="Enter your message"
+                      value={formik.values.comment}
+                      onChange={formik.handleChange("comment")}
+                      onBlur={formik.handleBlur("comment")}
                     ></textarea>
+                    <div className="error">
+                      {formik.touched.comment && formik.errors.comment}
+                    </div>
                   </div>
                   <div>
-                    <button className="button mt-0 border-0">Send</button>
+                    <button type="submit" className="button mt-0 border-0">
+                      Send
+                    </button>
                   </div>
                 </form>
               </div>
